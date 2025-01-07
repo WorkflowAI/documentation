@@ -1,4 +1,3 @@
-# AI Agents
 ## What are AI agents?
 
 AI agents are mini-programs that are using AI algorithms to perform intelligent operations. For example, a AI agent can:
