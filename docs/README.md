@@ -1,7 +1,3 @@
----
-icon: hand-wave
----
-
 # Welcome to WorkflowAI
 
 WorkflowAI is an open-source platform for product and development teams to design, deploy and manage AI agents.
