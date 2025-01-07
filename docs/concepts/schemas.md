@@ -5,15 +5,14 @@ An AI agent has at least one schema. Each schema define:
 - an output structure
 
 For example, a [task that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
-![alt text](/assets/Screenshot 2025-01-03 at 15.16.32.png)
+
+![alt text](/assets/schema.png)
 
 {% tabs %}
 {% tab title="Python" %}
 {% hint style="info" %}
 WorkflowAI uses [Pydantic](https://docs.pydantic.dev/) to define schemas.
 {% endhint %}
-
-```python
 
 ```python
 class PdfQuestionAnsweringTaskInput(BaseModel):
