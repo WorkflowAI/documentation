@@ -1,6 +1,4 @@
----
-title: Welcome to WorkflowAI
----
+# Welcome
 
 WorkflowAI is an open-source platform for product and development teams to design, deploy and manage AI agents.
 

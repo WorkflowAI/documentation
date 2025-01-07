@@ -1,5 +1,5 @@
 # Summary
-* [Introduction](README.md)
+* [Welcome](README.md)
 
 ## Getting Started
 * [Build your first AI agent in 5 minutes](getting-started/first-agent.md)
