@@ -10,6 +10,7 @@ And in Python:
 {% hint style="info" %}
 WorkflowAI uses [Pydantic](https://docs.pydantic.dev/) to define schemas.
 {% endhint %}
+
 ```python
 class PdfQuestionAnsweringTaskInput(BaseModel):
     pdf_document: Optional[File] = None
