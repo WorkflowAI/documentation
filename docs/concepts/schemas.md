@@ -1,4 +1,5 @@
 # Schemas
+## What are schemas?
 An AI agent has at least one schema. Each schema define:
 - an input structure
 - an output structure
