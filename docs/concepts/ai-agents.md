@@ -1,5 +1,5 @@
 # AI Agents
-#### What are AI agents?
+## What are AI agents?
 
 AI agents are mini-programs that are using AI algorithms to perform intelligent operations. For example, a AI agent can:
 - summarize a text [todo: add link to public task]
@@ -12,10 +12,10 @@ AI agents are mini-programs that are using AI algorithms to perform intelligent 
 AI agents can access tools, some of which are built-in, like searching the web, navigating on webpages, or your own custom tools.
 By combining agents, you can create [complex workflows](link).
 
-#### What are some great use-cases for AI agents?
+## What are some great use-cases for AI agents?
 The easiest way to get started with a personalized list of AI agents for your product and company is to go to [workflowai.com](https://workflowai.com) and enter your company URL.
 
-#### What use-cases are not well supported (yet!)?
+## What use-cases are not well supported (yet!)?
 - image generation
 - audio real-time (see OpenAI's [real-time speech-to-text API](https://platform.openai.com/docs/guides/realtime))
 - your own custom tools (subscribe to this discussion on GH https://github.com/WorkflowAI/WorkflowAI/discussions/categories/ideas)
