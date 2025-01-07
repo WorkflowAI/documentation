@@ -7,10 +7,13 @@ An AI agent has at least one schema. Each schema define:
 For example, a [task that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
 ![alt text](/assets/Screenshot 2025-01-03 at 15.16.32.png)
 
-And in Python:
+{% tabs %}
+{% tab title="Python" %}
 {% hint style="info" %}
 WorkflowAI uses [Pydantic](https://docs.pydantic.dev/) to define schemas.
 {% endhint %}
+
+```python
 
 ```python
 class PdfQuestionAnsweringTaskInput(BaseModel):
@@ -25,6 +28,27 @@ class PdfQuestionAnsweringTaskOutput(BaseModel):
     answer: Optional[str] = None
     supporting_quotes: Optional[list[SupportingQuote]] = None
 ```
+{% endtab %}
+
+{% tab title="TypeScript" %}
+```typescript
+interface PdfQuestionAnsweringTaskInput {
+    pdf_document?: File;
+    question?: string;
+}
+
+interface SupportingQuote {
+    quote?: string;
+    page_number?: number;
+}
+
+interface PdfQuestionAnsweringTaskOutput {
+    answer?: string;
+    supporting_quotes?: SupportingQuote[];
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Why are schemas a good idea?
 Clear input and output structures (=schemas) have a few benefits:
