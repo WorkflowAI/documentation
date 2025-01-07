@@ -5,7 +5,7 @@ An AI agent has at least one schema. Each schema define:
 - an output structure
 
 For example, a [task that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
-![alt text](assets/Screenshot 2025-01-03 at 15.16.32.png)
+![alt text](/assets/Screenshot 2025-01-03 at 15.16.32.png)
 
 And in Python:
 {% hint style="info" %}
