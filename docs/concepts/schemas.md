@@ -7,7 +7,9 @@ For example, a [task that answer question about a PDF](https://workflowai.dev/wo
 ![alt text](assets/Screenshot 2025-01-03 at 15.16.32.png)
 
 And in Python:
-> WorkflowAI uses [Pydantic](https://docs.pydantic.dev/) to define schemas.
+{% hint style="info" %}
+WorkflowAI uses [Pydantic](https://docs.pydantic.dev/) to define schemas.
+{% endhint %}
 ```python
 class PdfQuestionAnsweringTaskInput(BaseModel):
     pdf_document: Optional[File] = None
