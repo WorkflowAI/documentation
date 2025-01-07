@@ -5,8 +5,8 @@ WorkflowAI is an open-source platform for product and development teams to desig
 [Build your first AI agent in 5 minutes.](docs/getting-started/first-agent.md)
 
 Learn more:
-- [Concepts](concepts/)
-- [Features](features/)
+- [Concepts](concepts/ai-agents.md)
+- [Features](features/playground.md)
 - [WorkflowAI Cloud](cloud/introduction.md)
 - [Self-hosting](self-hosting/setup.md)
 
