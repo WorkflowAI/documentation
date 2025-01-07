@@ -2,34 +2,34 @@
 * [Introduction](README.md)
 
 ## Getting Started
-* [Build your first AI agent in 5 minutes](docs/getting-started/first-agent.md)
+* [Build your first AI agent in 5 minutes](getting-started/first-agent.md)
 
 ## Concepts
-* [AI Agents](docs/concepts/ai-agents.md)
-* [Schemas](docs/concepts/schemas.md)
-* [Versions](docs/concepts/versions.md)
-* [Runs](docs/concepts/runs.md)
-* [Tools](docs/concepts/tools.md)
+* [AI Agents](concepts/ai-agents.md)
+* [Schemas](concepts/schemas.md)
+* [Versions](concepts/versions.md)
+* [Runs](concepts/runs.md)
+* [Tools](concepts/tools.md)
 
 ## Features
-* [Playground](docs/features/playground.md)
-* [Benchmarks](docs/features/benchmarks.md)
-* [Code](docs/features/code.md)
-* [Deployments](docs/features/deployments.md)
-* [Monitoring](docs/features/monitoring.md)
+* [Playground](features/playground.md)
+* [Benchmarks](features/benchmarks.md)
+* [Code](features/code.md)
+* [Deployments](features/deployments.md)
+* [Monitoring](features/monitoring.md)
 
 ## WorkflowAI Cloud
-* [Introduction](docs/cloud/introduction.md)
-* [Pricing](docs/cloud/pricing.md)
-* [Reliability](docs/cloud/reliability.md)
-* [Compliance](docs/cloud/compliance.md)
+* [Introduction](cloud/introduction.md)
+* [Pricing](cloud/pricing.md)
+* [Reliability](cloud/reliability.md)
+* [Compliance](cloud/compliance.md)
 
 ## Self-hosting
-* [Setup](docs/self-hosting/setup.md)
+* [Setup](self-hosting/setup.md)
 
 ## Advanced Topics
-* [Workflows](docs/advanced/workflows.md)
-* [RAG Integration](docs/advanced/rag.md)
+* [Workflows](advanced/workflows.md)
+* [RAG Integration](advanced/rag.md)
 
 ## Support
 * [Slack](https://workflowai.com/slack)
