@@ -1,8 +1,8 @@
-## Compliance (WorkflowAI Cloud)
-### No training on your data, ever.
+# Compliance (WorkflowAI Cloud)
+## No training on your data, ever.
 We have contractual agreements with our AI subprocessors that prohibit the use of customer data to train their models.
 
-### SOC2 (Type1) Compliance
+## SOC2 (Type1) Compliance
 
 > Report is available [here](https://workflowai.com/docs/soc2-report.pdf).
 
