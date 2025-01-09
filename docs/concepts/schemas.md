@@ -49,6 +49,13 @@ interface PdfQuestionAnsweringTaskOutput {
 {% endtab %}
 {% endtabs %}
 
+## Examples
+For example, if you want an agent to summarize a text, the input is a text, and the output is a summary. If you want this agent to summarize a text in a specific language, you'll need to add a language parameter to the input. The inputs are like all the variables the LLM will have access to. The outputs are the different variables the LLM will generate.
+
+{% hint style="info" %}
+When using WorkflowAI web-app, you can write what you want the agent to do, and the web-app will generate a schema for you.
+{% endhint %}
+
 ## Why are schemas a good idea?
 Clear input and output structures (=schemas) have a few benefits:
 1. simplify integration with a backend by providing a clear interface

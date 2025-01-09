@@ -3,6 +3,7 @@
 
 ## Getting Started
 * [Build your first AI agent in 5 minutes](getting-started/first-agent.md)
+* [Methodology](methodology.md)
 
 ## Concepts
 * [AI Agents](concepts/ai-agents.md)
