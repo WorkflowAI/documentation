@@ -3,7 +3,17 @@
 
 ## Getting Started
 * [Build your first AI agent in 5 minutes](getting-started/first-agent.md)
-* [Methodology](methodology.md)
+* [Using Cursor](cursor.md)
+
+## AI Agents Playbook
+* [Introduction](playbook/introduction.md)
+* [What is an AI agent?](playbook/what-is-an-ai-agent.md)
+* [Building your first AI agent](playbook/building-your-first-ai-agent.md)
+* [Testing your AI agent](playbook/testing-your-ai-agent.md)
+* [Improving your AI agent](playbook/improving-your-ai-agent.md)
+* [Best practices](playbook/best-practices.md)
+* [Advanced workflows](playbook/advanced-workflows.md)
+* [What to do next](playbook/what-to-do-next.md)
 
 ## Concepts
 * [AI Agents](concepts/ai-agents.md)
