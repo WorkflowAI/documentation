@@ -6,7 +6,7 @@ First goal is to set something running quickly, a POC (Proof of Concept) to vali
 To create a first version of a new agent, you'll only need to be able to describe in a few sentences what the agent should do.
 
 {% hint style="info" %}
-We recommend starting using the web-app, as it's the fastest way to get started.
+We recommend starting using the [web-app](https://workflowai.com/), as it's the fastest way to get started.
 {% endhint %}
 
 ### New AI agent

@@ -12,7 +12,7 @@ This playbook is also available as a PDF and podcast.
 
 ## Why should you read this playbook?
 
-> "I expect that we will see AI agents that can accomplish a wide range of knowledge work tasks in the next few years." — _Sam Altman_ ([source](https://blog.samaltman.com/reflections))
+> "I expect that we will see AI agents that can accomplish a wide range of knowledge work tasks in the next few years." — [_Sam Altman_](https://blog.samaltman.com/reflections)
 
 ### With this playbook, you will learn:
 - What are AI agents and what they can do.

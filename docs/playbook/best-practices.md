@@ -19,3 +19,7 @@ WorkflowAI makes it easy to add tools to your agents.
 ...
 {% endhint %}
 
+## High reliability
+
+a note about uptime and reliability from AI providers, ... and how WorkflowAI can help.
+
