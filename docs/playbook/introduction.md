@@ -24,3 +24,26 @@ Developing great AI agents is:
 - a process of iterations,
 - setting up evaluations,
 - and collaboration between product and developments teams.
+
+## Why WorkflowAI?
+
+[todo: explain why each of these is important to build better AI agents]
+
+- compare all models (playground)
+- observability built-in
+- cost management included
+- providers fallback
+- full flexibility if you need it
+- evaluations built-in
+- update prompts without code changes (deployments)
+- includes tools (search, web)
+- integrates wit CursorAI
+- collaborative web platform for non-engineers
+- open-source
+- AI prompt engineering
+- deploy with native SDK for Python and Typescript
+
+WorkflowAI Cloud:
+- no training on data
+- price match
+- SOC2 compliant
