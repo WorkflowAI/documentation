@@ -65,3 +65,15 @@ Make sure you've tested the most intelligent models available.
 {% endhint %}
 
 Solution: in that case, you'll need to re-evaluate what your AI agent can do.
+
+## Deploy a new version of the agent
+
+{% hint style="info" %}
+WorkflowAI makes it easy to deploy new versions of your agents, without changing your code.
+{% endhint %}
+
+## Benchmark new models
+
+{% hint style="info" %}
+WorkflowAI makes it easy to benchmark new models...
+{% endhint %}
