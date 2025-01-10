@@ -29,7 +29,9 @@ Developing great AI agents is:
 
 [todo: explain why each of these is important to build better AI agents]
 
+- fast: build your first agent in 5 minutes
 - compare all models (playground)
+    - OpenAI's models are not always the best choice
 - observability built-in
 - cost management included
 - providers fallback
@@ -42,6 +44,7 @@ Developing great AI agents is:
 - open-source
 - AI prompt engineering
 - deploy with native SDK for Python and Typescript
+- versions management (need to find a better name)
 
 WorkflowAI Cloud:
 - no training on data
