@@ -44,27 +44,70 @@ Write the workflow you want to setup in CursorAI:
 
 CursorAI will generate the code for you. The code, when run for the first time, might create new agents on WorkflowAI.
 
-workflow builder agent:
-- input:
-    - a workflow definition
-    - existing agents
-        - name
-        - input
-        - output
-        - instructions
-- output:
-    - code in Python to run the workflow
-    - list of new agents required by the workflow
-        - name
-        - input
-        - output
-        - instructions
-    - list of all agents used by the workflow
-        - name
 > https://workflowai.dev/workflowai/tasks/workflow-builder/1?groupIteration=9&showDiffMode=false&show2ColumnLayout=false&taskRunId1=1923d00c-5034-423c-922f-df06e7f6d38c&taskRunId2=663aea18-dcd9-47be-a281-ac7dcedbff42&taskRunId3=bebea544-7b64-46bd-b186-6c61bd4d10c4&taskRunId=bebea544-7b64-46bd-b186-6c61bd4d10c4
+```python
+import workflowai
+from pydantic import BaseModel
+from typing import List, Optional
 
+# Define schemas for each task
+class ScrapeListInput(BaseModel):
+    url: str = 'https://www.ycombinator.com/companies/w25'
 
+class ScrapeListOutput(BaseModel):
+    company_urls: List[str]
+    company_names: List[str]
 
+class ScrapeCompanyInput(BaseModel):
+    company_url: str
+
+class ScrapeCompanyOutput(BaseModel):
+    founder_names: List[str]
+
+class CompanyData(BaseModel):
+    company_name: str
+    founder_names: List[str]
+
+class FinalOutput(BaseModel):
+    companies: List[CompanyData]
+
+# Define tasks
+@workflowai.task(schema_id=1, model='gpt-4-turbo', version='production')
+async def scrape_yc_list(task_input: ScrapeListInput) -> ScrapeListOutput:
+    ...
+
+@workflowai.task(schema_id=2, model='gpt-4-turbo', version='production')
+async def scrape_company_page(task_input: ScrapeCompanyInput) -> ScrapeCompanyOutput:
+    ...
+
+async def main():
+    # Initialize list scraping
+    list_input = ScrapeListInput()
+    list_result = await scrape_yc_list(list_input)
+    
+    # Process each company
+    companies = []
+    for i, company_url in enumerate(list_result.company_urls):
+        company_input = ScrapeCompanyInput(company_url=company_url)
+        company_result = await scrape_company_page(company_input)
+        
+        companies.append(CompanyData(
+            company_name=list_result.company_names[i],
+            founder_names=company_result.founder_names
+        ))
+    
+    # Return final results
+    return FinalOutput(companies=companies)
+
+if __name__ == '__main__':
+    import asyncio
+    result = asyncio.run(main())
+    
+    # Print results
+    for company in result.companies:
+        print(f'Company: {company.company_name}')
+        print(f'Founders: {
+```
 
 ## Workflow: Parallelization
 LLMs can sometimes work simultaneously on a task and have their outputs aggregated programmatically. This workflow, parallelization, manifests in two key variations:
