@@ -3,7 +3,9 @@
 
 ## Getting Started
 * [Build your first AI agent in 5 minutes](getting-started/first-agent.md)
-* [Using Cursor](cursor.md)
+* [CursorAI Integration](integrations/cursor.md)
+* [For product managers](getting-started/for-product-managers.md)
+* [For developers](getting-started/for-developers.md)
 
 ## AI Agents Playbook
 * [Introduction](playbook/introduction.md)
@@ -12,7 +14,9 @@
 * [Testing your AI agent](playbook/testing-your-ai-agent.md)
 * [Improving your AI agent](playbook/improving-your-ai-agent.md)
 * [Best practices](playbook/best-practices.md)
-* [Advanced workflows](playbook/advanced-workflows.md)
+* [Workflows](playbook/workflows.md)
+* [RAG](playbook/rag.md)
+* [Fine-tuning](playbook/fine-tuning.md)
 * [What to do next](playbook/what-to-do-next.md)
 
 ## Concepts
