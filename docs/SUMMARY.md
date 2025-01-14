@@ -25,6 +25,7 @@
 * [Versions](concepts/versions.md)
 * [Runs](concepts/runs.md)
 * [Tools](concepts/tools.md)
+* [@prompt](advanced/prompt.md)
 
 ## Features
 * [Playground](features/playground.md)
