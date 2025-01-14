@@ -23,7 +23,7 @@ def prompt(question: str) -> str:
 
 ## Supported features
 
-## Playground
+### Playground
 Supported, but instructions should be left empty.
 
 ### Benchmarks
