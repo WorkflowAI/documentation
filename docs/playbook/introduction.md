@@ -35,7 +35,7 @@ Developing great AI agents is:
 - observability built-in
 - cost management included
 - providers fallback
-- [full flexibility](advanced/prompt.md) if you need it
+- [full flexibility](concepts/prompt.md) if you need it
 - evaluations built-in
 - update prompts without code changes (deployments)
 - includes tools (search, web)
