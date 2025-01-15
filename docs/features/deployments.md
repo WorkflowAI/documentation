@@ -1,5 +1,5 @@
 ## Deployments
-Deploy specific versions of an agent with ease, allowing for updates to prompts and models without any code changes.
+Deploy specific versions of an agent with ease, allowing for updates to prompts and models **without any code changes**.
 
 ### Why use deployments?
 - ✅ update to a new model or prompt without asking your engineering team.
@@ -25,7 +25,7 @@ To avoid any breaking changes: deployments are **schema specific**, meaning that
  - if you have credits from [Microsoft Startups](https://startups.microsoft.com/), [Google AI credits](https://cloud.google.com/startup), or [Amazon Bedrock credits](https://aws.amazon.com/startups/credits).
 - if you want to use your own rate limits.
 
-Remember that WorkflowAI Cloud offers a price-match guarantee, meaning that you're not charged more than the price per token of the model you're using. Learn more about the price-match guarantee [here](https://workflowai.com/pricing).
+Remember that WorkflowAI Cloud offers a price-match guarantee, meaning that you're not charged more than the price per token of the model you're using. Learn more about the price-match guarantee [here](/docs/cloud/pricing.md).
 
 ### How to use your own API key?
 - Go to "Deployments" section from the menu.
