@@ -1,10 +1,9 @@
 ## What is an AI agent?
-> for product and engineering teams
 
 > The unprecedented capabilities of foundation models have opened the door to agentic applications that were previously unimaginable. These new capabilities make it finally possible to develop autonomous, intelligent agents to act as our assistants, coworkers, and coaches. They can help us create a website, gather data, plan a trip, do market research, manage a customer account, automate data entry, prepare us for interviews, interview our candidates, negotiate a deal, etc. The possibilities seem endless, and the potential economic value of these agents is enormous.
 > [Chip Huyen](https://huyenchip.com/2025/01/07/agents.html)
 
-AI agents are mini-programs that use AI algorithms (LLMs) as their brain to accomplish tasks typically provided by users. The AI processes the task, plans a sequence of actions to achieve it, and determines whether the task has been successfully completed.
+AI agents are mini-programs that use AI algorithms (LLMs) as their brain to accomplish tasks typically provided by users or other agents. The AI agent understands the task requirements, plans a sequence of actions to achieve the task, executes the actions, and determines whether the task has been successfully completed.
 
 For example, a AI agent can:
 - summarize a text [todo: add link to public task]
