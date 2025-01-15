@@ -14,6 +14,7 @@ For example, a AI agent can:
 - generate product descriptions from images [todo: add link to public task]
 - extract structured data from a PDF, image [todo: add link to public task]
 - classify a customer message into a category [todo: add link to public task]
+- scrape a listing website to extract structured data [todo: add link to public task]
 - [add more examples, link]
 
 AI agents can access tools, some of which are built-in, like searching the web, navigating on webpages, or your own custom tools. The success of an agent depends on both the tools available to it and the capabilities of its AI planner.
