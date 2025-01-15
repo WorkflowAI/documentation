@@ -13,6 +13,7 @@
 * [What is an AI agent?](playbook/what-is-an-ai-agent.md)
 * [Building your first AI agent](playbook/building-your-first-ai-agent.md)
 * [Testing your AI agent](playbook/testing-your-ai-agent.md)
+* [Evaluating your AI agent](playbook/evaluating-your-ai-agent.md)
 * [Improving your AI agent](playbook/improving-your-ai-agent.md)
 * [Best practices](playbook/best-practices.md)
 * [Workflows](playbook/workflows.md)
