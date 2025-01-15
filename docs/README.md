@@ -1,4 +1,4 @@
-WorkflowAI is an open-source platform for product and development teams to design, deploy and optimize AI agents.
+WorkflowAI is an [open-source](https://github.com/workflowai/workflowai) platform for [product](getting-started/for-product-managers.md) and [development](getting-started/for-developers.md) teams to design, deploy and optimize AI agents.
 
 {% hint style="info" %}
 Please give us a star on [GitHub](https://github.com/workflowai/workflowai) to follow updates.
