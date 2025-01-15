@@ -15,7 +15,9 @@ Deploy specific versions of an agent with ease, allowing for updates to prompts 
 - Select the version you want to deploy.
 - Tap [Deploy]
 
-> To avoid any breaking changes: deployments are **schema specific**, meaning that you can deploy a (development, staging, production) version for each schema of an agent.
+{% hint style="warning" %}
+To avoid any breaking changes: deployments are **schema specific**, meaning that you can deploy a (development, staging, production) version for each schema of an agent.
+{% endhint %}
 
 ### Using your own AI Providers API
 #### When to use your own API key?
