@@ -35,6 +35,7 @@
 * [Code](features/code.md)
 * [Deployments](features/deployments.md)
 * [Monitoring](features/monitoring.md)
+* [Limitations](features/limitations.md)
 
 ## WorkflowAI Cloud
 * [Introduction](cloud/introduction.md)

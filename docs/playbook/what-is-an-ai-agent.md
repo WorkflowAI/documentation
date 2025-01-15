@@ -17,7 +17,7 @@ For example, a AI agent can:
 - scrape a listing website to extract structured data [todo: add link to public task]
 - [add more examples, link]
 
-AI agents can access tools, some of which are built-in, like searching the web, navigating on webpages, or your own custom tools. The success of an agent depends on both the tools available to it and the capabilities of its AI planner.
+AI agents can access [tools](#tools), some of which are built-in, like searching the web, navigating on webpages, or your own custom tools. The success of an agent depends on both the tools available to it and the capabilities of its AI planner.
 
 <details>
 <summary>REAL-LIFE EXAMPLE</summary>
