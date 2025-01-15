@@ -3,9 +3,10 @@
 
 ## Getting Started
 * [Build your first AI agent in 5 minutes](getting-started/first-agent.md)
-* [CursorAI Integration](integrations/cursor.md)
+* [Migrate an existing prompt](getting-started/migrate.md)
 * [For product managers](getting-started/for-product-managers.md)
 * [For developers](getting-started/for-developers.md)
+  * [CursorAI Integration](integrations/cursor.md)
 
 ## AI Agents Playbook
 * [Introduction](playbook/introduction.md)
@@ -40,8 +41,8 @@
 * [Reliability](cloud/reliability.md)
 * [Compliance](cloud/compliance.md)
 
-## Self-hosting
-* [Setup](self-hosting/setup.md)
+## Open-source
+* [Setup](https://github.com/workflowai/workflowai)
 
 ## Advanced Topics
 * [Workflows](advanced/workflows.md)

@@ -15,7 +15,9 @@ def prompt(question: str) -> str:
     user(question)
 ```
 
-## When to use `@prompt` vs `@agent`? 
+## When to use `@prompt` vs `@agent`?
+
+For most cases, you should use `@agent` instead of `@prompt`. `@prompt` is useful when you want to write a prompt fully customizable, using code, and still benefit from the WorkflowAI platform.
 
 ## Tools
 
@@ -25,6 +27,11 @@ def prompt(question: str) -> str:
 
 ### Playground
 Supported, but instructions should be left empty.
+
+### Versions
+Currently not supported for `@prompt`.
+
+
 
 ### Benchmarks
 Currently not supported for `@prompt`.
