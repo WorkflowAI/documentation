@@ -7,6 +7,7 @@
 * [For product managers](getting-started/for-product-managers.md)
 * [For developers](getting-started/for-developers.md)
   * [CursorAI Integration](integrations/cursor.md)
+  * [v0.dev](integrations/v0.dev.md)
 
 ## AI Agents Playbook
 * [Introduction](playbook/introduction.md)
