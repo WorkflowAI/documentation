@@ -10,7 +10,7 @@ Tools have two forms:
 ## Hosted Tools
 
 ### What hosted tools are available?
-WorklfowAI supports the following tools:
+WorklfowAI supports and manages the following tools:
 - `@search`: search the web to answer a question
 - `@browser-text`: navigate on webpages (text-only)
 

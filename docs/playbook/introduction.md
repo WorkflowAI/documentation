@@ -1,7 +1,5 @@
 # Introduction
 
-Welcome to the AI Agents Playbook! Based on our experience with customers building AI agents and deploying them to production, WorkflowAI has developed a step-by-step methodology.
-
 {% hint style="success" %}
 This playbook was designed for both product and engineering teams.
 {% endhint %}
@@ -10,7 +8,19 @@ This playbook was designed for both product and engineering teams.
 
 > "I expect that we will see AI agents that can accomplish a wide range of knowledge work tasks in the next few years." — [_Sam Altman_](https://blog.samaltman.com/reflections)
 
-AI agents are the next big thing. They will be able to perform a wide range of tasks, from simple ones like summarizing a text, to complex ones like planning a trip. Agents will change the way we work by automating repetitive tasks, and the way we interact with products by bringing intelligence everywhere.
+Have you ever wished you could create a little application *just for your business?*
+
+To qualify leads, segment customers, extract data from PDFs, analyze large data sets, send reminders, or even keep an eye on compliance while you’re on vacation.
+
+This is the promise of AI *agents:* a new generation of AIs that can use apps for you, and plug in to all your company knowledge and tools. Unlike the first wave of AIs that largely answered questions inside chat interfaces, you can send *agents* off on their own — like little workers — to do repetitive tasks for you. And they can do them at lightning speed.
+
+**But what agents should you create? And how should you create them?**
+
+That’s where we come in. At WorkflowAI, we’re making it easy to discover what kinds of agents can help your business. And then, we create them for you in minutes.
+
+Handy little apps and automations made *just for you.*
+
+They might just change how you work forever.
 
 ### With this playbook, you will learn:
 - What are AI agents and what they can do.

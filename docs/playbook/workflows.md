@@ -119,6 +119,8 @@ Voting: Running the same task multiple times to get diverse outputs.
 
 > https://github.com/anthropics/anthropic-cookbook/blob/main/patterns/agents/basic_workflows.ipynb
 
+> https://www.agentrecipes.com 
+
 ### Example
 Ask multiple agents for an answer, and aggregate the results.
 

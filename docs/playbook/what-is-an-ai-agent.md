@@ -1,4 +1,4 @@
-## What is an AI agent?
+# What is an AI agent?
 
 > The unprecedented capabilities of foundation models have opened the door to agentic applications that were previously unimaginable. These new capabilities make it finally possible to develop autonomous, intelligent agents to act as our assistants, coworkers, and coaches. They can help us create a website, gather data, plan a trip, do market research, manage a customer account, automate data entry, prepare us for interviews, interview our candidates, negotiate a deal, etc. The possibilities seem endless, and the potential economic value of these agents is enormous.
 > [Chip Huyen](https://huyenchip.com/2025/01/07/agents.html)
@@ -26,7 +26,7 @@ Apple recently introduced a AI agent that can rewrite a text with a different to
 [image]
 </details>
 
-### What AI Agents can you leverage?
+## What AI Agents can you leverage?
 
 The easiest way to get started with a personalized list of AI agents for your product and company is to go to [workflowai.com](https://workflowai.com) and enter your company URL.
 
@@ -47,7 +47,34 @@ Berrystreet.co, a company that ..., developed a AI agent that can write SOAP not
 
 </details>
 
-### Tools
+## By use case
+
+| Use Case | AI Agents |
+|----------|----------|
+| Text Generation | • Blog articles and marketing copy<br>• Email replies and messages<br>• Medical and business documentation<br>• Educational content and quizzes<br>• Personalized recommendations |
+| Text Processing | • Multi-language translation<br>• Text tone and style modification<br>• Grammar and content optimization<br>• Document summarization<br>• Conversation and issue titling |
+| Data Extraction | • Document and form processing<br>• Calendar and event extraction<br>• Medical and business code analysis<br>• Structured data extraction<br>• Real estate and shipping details |
+| Analysis & Detection | • Content moderation and safety<br>• Threat and fraud detection<br>• Sentiment and style analysis<br>• Priority classification |
+| Media Processing | • Image analysis and tagging<br>• Food and product recognition<br>• Video transcription and analysis<br>• Key moment identification |
+| Interactive Systems | • Specialized chatbots<br>• Memory-enhanced conversations<br>• Knowledge-based Q&A |
+| Industry Solutions | • Healthcare documentation<br>• Financial processing<br>• Real estate analysis<br>• E-commerce optimization<br>• Marketing automation |
+
+## By industry
+
+| Industry | AI Agents |
+|----------|----------------|
+| Healthcare | • SOAP notes generation from transcripts<br>• Medical data extraction and summarization<br>• Medical document translation<br>• Therapeutic guidance chatbots |
+| Finance & Banking | • Fraud detection<br>• Loan application processing<br>• Financial document analysis and extraction<br>• Transaction verification |
+| E-commerce & Retail | • Product categorization and tagging<br>• Customer feedback and sentiment analysis<br>• Product image analysis<br>• Marketing copy generation |
+| Real Estate | • Property document analysis<br>• Listing details extraction and generation<br>• Contract analysis<br>• Document translation |
+| Technology & Software | • App review and feedback analysis<br>• Issue management<br>• Content moderation<br>• Security vulnerability detection<br>• Communication assistance |
+| Education & Learning | • Educational content generation<br>• Language learning tools<br>• Content summarization and translation<br>• Interactive tutoring |
+| Marketing & Media | • Content generation and adaptation<br>• Multilingual content management<br>• Copy optimization<br>• Content tone modification |
+| Logistics & Supply Chain | • Document processing and analysis<br>• Data extraction<br>• Address verification<br>• Document translation |
+| Insurance | • Policy and claim analysis<br>• Document processing<br>• Coverage verification<br>• Document summarization |
+| Content & Publishing | • Media accessibility tools<br>• Content moderation<br>• Language processing<br>• Document translation |
+
+## Tools
 
 Let's look at why tools are so important through a simple example:
 

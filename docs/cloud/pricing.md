@@ -20,3 +20,8 @@ For any AI provider, we offer a price-match guarantee: WorkflowAI Cloud **charge
 
 If you have credits with Amazon, Google, or Azure, you can also continue to use them via WorkflowAI Cloud, [by providing your own API keys](features/deployments.md#using-your-own-ai-providers-api).
 
+## What is WorkflowAI Cloud business model?
+
+We are making our margin by buying LLMs tokens in bulk, with a discount, and then reselling them to you at public price.
+
+Thinking from first principles, the cost of inference is mostly GPU and electricity, not tokens. When you buy tokens from a LLM provider, effectively you are paying for the electricity and GPU cost. But renting a GPU makes only sense if you can utilize the GPU at maximum capacity, all the time. 

@@ -1,16 +1,16 @@
 # CursorAI Integration
 
-For developers using Python, we've designed a CursorAI integration that ...
+For developers using Python, we've designed a CursorAI integration that allows you to create AI agents in CursorAI, and deploy them to WorkflowAI.
 
 Goals of the integration:
-
 - gives you the flexibilty to setup the AI agent schema in code,
-- the power of WorkflowAI playground,
-- deployment
-- and observability platform.
+- but keep the power of WorkflowAI playground,
+- use any models available on WorkflowAI,
+- and integrated with WorkflowAI observability platform.
 
-[info]
+{% hint style="info" %}
 CursorAI integration is currently only available for Python.
+{% endhint %}
 
 ## Demo
 

@@ -17,3 +17,4 @@ The benefits of using WorkflowAI Cloud versus our own deployment are:
 - ✅ Cheaper: we offer a price-match guarantee, meaning that you're not charged more than the price per token of the model you're using. Learn more about the [price-match guarantee](/docs/cloud/pricing.md). Effectively cheaper than self-hosting.
 - ✅ Reliability: we ensure that your AI agents are [always available](/docs/cloud/reliability.md)
 - ✅ Compliance: [SOC 2 Type 2 certification](/docs/cloud/compliance.md).
+- ✅ Security: Enterprise SSO available, free of charge. [Learn more](/docs/cloud/security.md).
