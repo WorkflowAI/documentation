@@ -2,7 +2,7 @@
 
 Benchmarks are a great way to compare the performance, cost and latency of different versions of your agent.
 
-[image]
+![Benchmarks](</docs/assets/images/benchmarks.png>)
 
 In this section, we will learn:
 - what metrics are compared in benchmarks
@@ -38,5 +38,5 @@ AI-generated performance reviews are a feature of WorkflowAI that uses AI to rev
 
 For example, assuming you're building a agent that write a summary of a article, once you leave a first performance review, WorkflowAI will use AI to generate reviews for the other remaining summaries.
 
-![AI-generated reviews](</docs/images/ai-generated-reviews.png)
+![AI-generated reviews](</docs/assets/images/playground-reviews.png>)
 

@@ -6,7 +6,7 @@ An AI agent has at least one schema. Each schema define:
 
 For example, a [task that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
 
-![alt text](/docs/assets/schema.png)
+![alt text](/docs/assets/images/schema.png)
 
 {% tabs %}
 {% tab title="Python" %}
