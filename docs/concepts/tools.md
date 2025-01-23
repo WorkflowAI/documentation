@@ -1,11 +1,39 @@
 # Tools
+
 ## What are tools?
-Tools enable tasks to access external services, like searching the web, navigating on webpages, executing code and running other functions.
+
+Tools enable AI agents to:
+|   |   |
+|----------|----------|
+| **Access External Data** | Web searches, web scraping, databases, APIs, files |
+| **Perform Actions** | Form submissions, code execution, API calls, custom functions |
 
 Tools have two forms:
-| **Function Calling** | Developer-defined code.                                                                 |
+| **Custom Tools** | Developer-defined tools.                                                                 |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Hosted Tools**      | WorkflowAI-built tools (e.g., *search*, *browser-text*).
+| **Hosted Tools**      | WorkflowAI-built tools (e.g., *search-web*, *browser-text*).
+
+Hosted tools do not require any code, or engineering effort. But custom tools will require you to write code to handle the tool calls.
+
+## Custom Tools
+
+Custom tools are tools specific to your application. You are responsible for running these tools when they are called by the AI agent.
+
+### Add a new tool
+
+#### Using the playground
+
+
+
+#### Using code
+
+{% hint style="info" %}
+Adding a custom tool through code is currently only available with our Python SDK.
+{% endhint %}
+
+### Handling tool calls
+
+When the model returns a tool call, you need to execute the tool and return the result. 
 
 ## Hosted Tools
 
@@ -27,8 +55,3 @@ From the playground, under "Instructions", tap on the tools you want to enable.
 Tools are billed independently from the LLM inference costs.
 - `@search` tool: $0.... per search
 - `@browser-text` tool: $0.... per webpage
-
-## Function Calling
-
-[todo: explain how to use function calling]
-
