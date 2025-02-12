@@ -44,9 +44,15 @@
 * [Reliability](cloud/reliability.md)
 * [Compliance](cloud/compliance.md)
 
-## Open-source
-* [Setup](https://github.com/workflowai/workflowai)
-
+## SDKs
+* Python
+  * [Get started](sdk/python/get-started.md)
+  * Concepts
+    * [@agent](sdk/python/agent.md)
+    * [Multimodality](sdk/python/multimodality.md)
+    * [Tools](sdk/python/tools.md)
+  * [Workflows](sdk/python/workflows.md)
+  * [Examples](sdk/python/examples.md)
 ## Advanced Topics
 * [Workflows](advanced/workflows.md)
 * [RAG Integration](advanced/rag.md)
