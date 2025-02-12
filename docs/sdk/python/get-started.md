@@ -69,7 +69,10 @@ async def get_capital_info(city_input: CityInput) -> CapitalOutput:
 
 {% tab title="OpenAI" %}
 ```python
-output = await get_capital_info(CityInput(city="New York"), model=Model.GPT_4O_LATEST)
+output = await get_capital_info(
+    CityInput(city="New York"), 
+    model=Model.GPT_4_LATEST
+)
 print(output)
 
 # country='United States'
@@ -80,7 +83,10 @@ print(output)
 
 {% tab title="Anthropic" %}
 ```python
-output = await get_capital_info(CityInput(city="New York"), model=Model.CLAUDE_3_5_SONNET_LATEST)
+output = await get_capital_info(
+    CityInput(city="New York"),
+    model=Model.CLAUDE_3_5_SONNET_LATEST
+)
 print(output)
 
 # country='United States'
@@ -91,7 +97,10 @@ print(output)
 
 {% tab title="Gemini" %}
 ```python
-agent_output = await get_capital_info(CityInput(city="New York"), model=Model.GEMINI_2_0_FLASH_LATEST)
+output = await get_capital_info(
+    CityInput(city="New York"),
+    model=Model.GEMINI_2_0_FLASH_LATEST
+)
 print(agent_output)
 
 # country='United States of America'
