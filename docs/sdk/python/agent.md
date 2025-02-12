@@ -33,7 +33,7 @@ class Output(BaseModel):
 
 ### Descriptions
 
-Adding descriptions to the input and output models is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM.
+Adding descriptions to the input and output models is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM. And so, it's a good way to align the agent's behavior.
 
 ```python
 class Input(BaseModel):
@@ -111,6 +111,9 @@ print(run)
 You can also pass a `model` parameter to the agent function itself to specify the model you want to use, and override the default model set in the `@agent` decorator.
 
 ```python
-run = await answer_question(Input(question="What is the history of Paris?"), model=Model.CLAUDE_3_5_SONNET_LATEST)
+run = await answer_question(
+    Input(question="What is the history of Paris?"),
+    model=Model.CLAUDE_3_5_SONNET_LATEST
+)
 print(run)
 ```
