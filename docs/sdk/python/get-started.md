@@ -102,6 +102,10 @@ print(agent_output)
 
 {% endtabs %}
 
-So simple. And the agent created by the SDK is also available in the <a href="https://workflowai.com/docs/agents/get-capital-info" target="_blank">Playground</a>.
+🌅 So simple! And the agent created by the SDK is also available in the <a href="https://workflowai.com/docs/agents/get-capital-info" target="_blank">Playground</a>.
 
 ![Playground](/docs/assets/images/playground/docs-capital-info.png)
+
+## Next steps
+
+Let's go through in more detail [how to setup an agent](./agent.md).
