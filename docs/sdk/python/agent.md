@@ -117,3 +117,47 @@ run = await answer_question(
 )
 print(run)
 ```
+
+### Cost, latency
+
+WorkflowAI automatically tracks the cost and latency of each run, and makes it available in the `run` object.
+
+To access the cost and latency, you need to use the `Run` class.
+
+```python
+from workflowai import Model, Run
+
+@workflowai.agent(model=Model.CLAUDE_3_5_SONNET_LATEST)
+# The return type is a Run[Output]
+async def answer_question(input: Input) -> Run[Output]:
+    ...
+
+run = await answer_question(Input(question="What is the history of Paris?"))
+print(f"Cost: $ {run.cost_usd}")
+print(f"Latency: {run.duration_seconds:.2f}s")
+
+# Cost: $ 0.007266000000000001
+# Latency: 8.70s
+```
+
+### Streaming
+
+```python
+from collections.abc import AsyncIterator
+
+@workflowai.agent(model=Model.CLAUDE_3_5_SONNET_LATEST)
+# no need to mark the function as async since it returns an AsyncIterator
+def answer_question_stream(input: Input) -> AsyncIterator[Output]:
+    ...
+
+async for chunk in answer_question_stream(Input(question="What is the history of Paris?")):
+    print(chunk.answer)
+```
+
+{% hint style="info" %}
+No need to mark the agent as async here ! It is already asynchronous since it returns an AsyncIterator.
+
+The type checkers some times get confused since they consider that an async function that returns an AsyncIterator is async twice.
+
+For example, a function with the signature `async def foo() -> AsyncIterator[int]` may be called `async for c in await foo():...` in certain cases...
+{% endhint %}
