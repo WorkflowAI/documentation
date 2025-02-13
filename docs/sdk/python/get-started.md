@@ -69,43 +69,86 @@ async def get_capital_info(city_input: CityInput) -> CapitalOutput:
 
 {% tab title="OpenAI" %}
 ```python
-output = await get_capital_info(
+output = await get_capital_info.run(
     CityInput(city="New York"), 
     model=Model.GPT_4_LATEST
 )
 print(output)
 
-# country='United States'
-# capital='Washington, D.C.'
-# fun_fact="New York City is known as 'The Big Apple' and is famous for its cultural diversity and iconic landmarks like the Statue of Liberty and Times Square."
+# {
+#   "country": "United States",
+#   "capital": "Washington, D.C.",
+#   "fun_fact": "New York City is known as 'The Big Apple' and is famous for its cultural diversity and iconic landmarks like Times Square and Central Park."
+# }
+# ==================================================
+# Cost: $ 0.00091
+# Latency: 1.65s
 ```
 {% endtab %}
 
 {% tab title="Anthropic" %}
 ```python
-output = await get_capital_info(
+output = await get_capital_info.run(
     CityInput(city="New York"),
     model=Model.CLAUDE_3_5_SONNET_LATEST
 )
 print(output)
 
-# country='United States'
-# capital='Washington, D.C.'
-# fun_fact="New York City's Federal Reserve Bank has the largest gold storage in the world, containing approximately 7,000 tons of gold bullion stored 80 feet below street level."
+# Output:
+# ==================================================
+# {
+#   "country": "United States",
+#   "capital": "Washington, D.C.",
+#   "fun_fact": "New York City's Federal Reserve Bank has the largest gold storage in the world, containing approximately 7,000 tons of gold bullion stored 80 feet below street level."
+# }
+# ==================================================
+# Cost: $ 0.001755
+# Latency: 2.43s
 ```
 {% endtab %}
 
 {% tab title="Gemini" %}
 ```python
-output = await get_capital_info(
+output = await get_capital_info.run(
     CityInput(city="New York"),
     model=Model.GEMINI_2_0_FLASH_LATEST
 )
-print(agent_output)
+print(output)
 
-# country='United States of America'
-# capital='Washington, D.C.'
-# fun_fact='New York City is home to over 8 million people and over 800 languages are spoken in New York City, making it the most linguistically diverse city in the world.'
+# Output:
+# ==================================================
+# {
+#   "country": "United States of America",
+#   "capital": "Washington, D.C.",
+#   "fun_fact": "New York City is home to over 8 million people and over 800 languages are spoken in New York City, making it the most linguistically diverse city in the world."
+# }
+# ==================================================
+# Cost: $ 0.00005
+# Latency: 1.26s
+```
+{% endtab %}
+
+{% tab title="OpenAI (stream)" %}
+
+```python
+async for chunk in get_capital_info.stream(
+    CityInput(city="New York"),
+    model=Model.GPT_4O_MINI_LATEST
+):
+    print(chunk)
+
+# {
+#   "country": "United"
+# }
+# {
+#   "country": "United States"
+# }
+# {
+#   "country": "United States"
+#   "capital": "Washington"
+# }
+# streaming continues...
+# ...
 ```
 {% endtab %}
 
@@ -114,6 +157,11 @@ print(agent_output)
 🌅 So simple! And the agent created by the SDK is also available in the <a href="https://workflowai.com/docs/agents/get-capital-info" target="_blank">Playground</a>.
 
 ![Playground](/docs/assets/images/playground/docs-capital-info.png)
+
+Runs are automatically logged as well.
+
+> https://workflowai.com/docs/agents/get-capital-info/1/runs?page=0
+![Runs](/docs/assets/images/runs/docs-capital-info.png)
 
 ## Next steps
 

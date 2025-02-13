@@ -19,7 +19,7 @@ The schema has two structured parts:
 
 The input and output are defined using [Pydantic](https://docs.pydantic.dev/latest/) models.
 
-A very simple example of a schema is the following:
+A very simple example of a schema is the following, where the agent receives a question as input and returns an answer as output.
 
 ```python
 from pydantic import BaseModel
@@ -83,6 +83,8 @@ The model is the LLM that will be used to generate the output. WorkflowAI offers
 The [list of models supported by WorkflowAI is available here](https://github.com/WorkflowAI/workflowai-py/blob/main/workflowai/core/domain/model.py), but you can also see the list of models from the playground, for a more user-friendly experience.
 {% endhint %}
 
+Set the model in the `@agent` decorator.
+
 ```python
 import workflowai
 from workflowai import Model
@@ -94,16 +96,20 @@ async def answer_question(input: Input) -> Output:
 
 ## Running the agent
 
-To run the agent, simply call the agent function with an input.
+To run the agent, simply call the `run` function with an input.
 
 ```python
-run = await answer_question(Input(question="What is the history of Paris?"))
+run = await answer_question.run(Input(question="What is the history of Paris?"))
 print(run)
 
-# - Paris, originally a settlement of the Parisii tribe, was established around 250 BC on the Île de la Cité.
-# - The Romans conquered the area in 52 BC, renaming it Lutetia, and later Paris, as it became a significant city in the Roman Empire.
-# - During the Middle Ages, Paris grew as a center of learning and culture, with the founding of the University of Paris in 1150.
-# ...
+# Output:
+# ==================================================
+# {
+#   "answer": "- Paris, the capital of France, has a history that dates back to ancient times, originally settled by the Parisii, a Celtic tribe, around 250 BC.\n- During the Roman era, it was known as Lutetia and became a significant city in the Roman province of Gaul.\n- In the Middle Ages, Paris grew as a center of learning and culture, with the establishment of the University of Paris in the 12th century.\n- The city played a pivotal role during the French Revolution in the late 18th century, becoming a symbol of revolutionary ideals.\n- In the 19th century, Paris underwent major transformations under Baron Haussmann, who modernized the city's infrastructure and architecture.\n- Paris was occupied during World War II but was liberated in 1944, marking a significant moment in its modern history.\n- Today, Paris is renowned for its cultural heritage, iconic landmarks like the Eiffel Tower and Notre-Dame Cathedral, and its influence in art, fashion, and politics."
+# }
+# ==================================================
+# Cost: $ 0.0027
+# Latency: 6.54s
 ```
 
 ### Override the default model
@@ -111,7 +117,7 @@ print(run)
 You can also pass a `model` parameter to the agent function itself to specify the model you want to use, and override the default model set in the `@agent` decorator.
 
 ```python
-run = await answer_question(
+run = await answer_question.run(
     Input(question="What is the history of Paris?"),
     model=Model.CLAUDE_3_5_SONNET_LATEST
 )
@@ -122,42 +128,56 @@ print(run)
 
 WorkflowAI automatically tracks the cost and latency of each run, and makes it available in the `run` object.
 
-To access the cost and latency, you need to use the `Run` class.
-
 ```python
-from workflowai import Model, Run
-
-@workflowai.agent(model=Model.CLAUDE_3_5_SONNET_LATEST)
-# The return type is a Run[Output]
-async def answer_question(input: Input) -> Run[Output]:
-    ...
-
-run = await answer_question(Input(question="What is the history of Paris?"))
-print(f"Cost: $ {run.cost_usd}")
+run = await answer_question.run(Input(question="What is the history of Paris?"))
+print(f"Cost: $ {run.cost_usd:.5f}")
 print(f"Latency: {run.duration_seconds:.2f}s")
 
-# Cost: $ 0.007266000000000001
-# Latency: 8.70s
+# Cost: $ 0.00745
+# Latency: 8.99s
 ```
 
 ### Streaming
 
+WorkflowAI also support streaming the output, using the `stream` method. The `stream` method returns an AsyncIterator, so you can use it in an async for loop.
+
 ```python
-from collections.abc import AsyncIterator
+async for chunk in answer_question.stream(Input(question="What is the history of Paris?")):
+    print(chunk)
 
-@workflowai.agent(model=Model.CLAUDE_3_5_SONNET_LATEST)
-# no need to mark the function as async since it returns an AsyncIterator
-def answer_question_stream(input: Input) -> AsyncIterator[Output]:
-    ...
+# Output:
+# ==================================================
+# {
+#   "answer": "-"
+# }
+# ==================================================
 
-async for chunk in answer_question_stream(Input(question="What is the history of Paris?")):
-    print(chunk.answer)
+# Output:
+# ==================================================
+# {
+#   "answer": "- Founde"
+# }
+# ==================================================
+
+# Output:
+# ==================================================
+# {
+#   "answer": "- Founded aroun"
+# }
+# ==================================================
+
+# Output:
+# ==================================================
+# {
+#   "answer": "- Founded around 250"
+# }
+# ==================================================
+
+# Output:
+# ==================================================
+# {
+#   "answer": "- Founded around 250 BCE"
+# }
+# ==================================================
+# ...
 ```
-
-{% hint style="info" %}
-No need to mark the agent as async here ! It is already asynchronous since it returns an AsyncIterator.
-
-The type checkers some times get confused since they consider that an async function that returns an AsyncIterator is async twice.
-
-For example, a function with the signature `async def foo() -> AsyncIterator[int]` may be called `async for c in await foo():...` in certain cases...
-{% endhint %}

@@ -16,13 +16,21 @@ async def get_capital_info(city_input: CityInput) -> CapitalOutput:
     ...
 
 async def main():
-    agent_output = await get_capital_info(CityInput(city="New York"), model=Model.CLAUDE_3_5_SONNET_LATEST)
+    agent_output = await get_capital_info.run(CityInput(city="New York"), model=Model.CLAUDE_3_5_SONNET_LATEST)
     print(f"Claude 3.5 Sonnet output:", agent_output)
 
-    agent_output = await get_capital_info(CityInput(city="New York"), model=Model.GPT_4O_LATEST)
+    agent_output = await get_capital_info.run(CityInput(city="New York"), model=Model.GPT_4O_LATEST)
     print(f"GPT-4O output:", agent_output)
 
-    agent_output = await get_capital_info(CityInput(city="New York"), model=Model.GEMINI_2_0_FLASH_LATEST)
+    print("\nStreaming with GPT-4...")
+    async for chunk in get_capital_info.stream(
+        CityInput(city="New York"),
+        model=Model.GPT_4O_MINI_LATEST,
+        use_cache='never'
+    ):
+        print(chunk)
+
+    agent_output = await get_capital_info.run(CityInput(city="New York"), model=Model.GEMINI_2_0_FLASH_LATEST)
     print(f"Gemini 2.0 Flash output:", agent_output)
 
 if __name__ == "__main__":
