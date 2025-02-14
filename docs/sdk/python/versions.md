@@ -25,9 +25,11 @@ async def triage_question(input: Input) -> Output:
 await triage_question.run(Input(question="How do I change my billing information?"))
 ```
 
-Running this agent for the first time will automatically create a new version of the agent on WorkflowAI.
+{% hint style="info" %}
+You can test this agent yourself on [WorkflowAI](https://workflowai.com/docs/agents/triage-agent/1).
+{% endhint %}
 
-You can also see the versions in the [WorkflowAI dashboard](https://workflowai.com/docs/agents/triage-agent/1/versions).
+Running this agent for the first time will automatically create a new version of the agent on WorkflowAI.
 
 ![Versions](/docs/assets/images/agents/triage-agent/version-1.png)
 
