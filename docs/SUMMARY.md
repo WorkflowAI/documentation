@@ -51,6 +51,8 @@
     * [@agent](sdk/python/agent.md)
     * [Multimodality](sdk/python/multimodality.md)
     * [Tools](sdk/python/tools.md)
+    * [Errors](sdk/python/errors.md)
+    * [Versions](sdk/python/versions.md)
   * [Workflows](sdk/python/workflows.md)
   * [Examples](sdk/python/examples.md)
 ## Advanced Topics

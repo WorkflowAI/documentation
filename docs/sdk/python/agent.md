@@ -33,7 +33,7 @@ class Output(BaseModel):
 
 ### Descriptions
 
-Adding descriptions to the input and output models is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM. And so, it's a good way to align the agent's behavior.
+Adding descriptions to the input and output fields is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM. And so, it's a good way to align the agent's behavior.
 
 ```python
 class Input(BaseModel):
@@ -45,7 +45,7 @@ class Output(BaseModel):
 
 ### Examples
 
-Another effective way to align the agent's behavior is to provide examples for **output** models.
+Another effective way to align the agent's behavior is to provide examples for **output** fields.
 
 ```python
 class Output(BaseModel):
@@ -59,7 +59,17 @@ class Output(BaseModel):
     )
 ```
 
-Note that adding examples to **input** models is not helpful.
+{% hint style="info" %}
+There are very little use cases for descriptions and examples in the **input** fields. The LLM will most of the time infer from the value that is passed.
+{% endhint %}
+
+### Required versus optional fields
+
+In short, we recommend using default values for most output fields.
+
+Pydantic is by default rather strict on model validation. If there is no default value, the field must be provided.
+Although the fact that a field is required is passed to the model, the generation can sometimes omit null or empty
+values.
 
 ## Instructions
 
@@ -74,6 +84,8 @@ async def answer_question(input: Input) -> Output:
     """
     ...
 ```
+
+Instructions are passed to the LLM via the system prompt.
 
 ## Model
 
@@ -94,6 +106,10 @@ async def answer_question(input: Input) -> Output:
     ...
 ```
 
+{% hint style="info" %}
+When a model is retired, it will be replaced dynamically by a newer version of the same model with the same or a lower price so using a model is always guaranteed to work in the future.
+{% endhint %}
+
 ## Running the agent
 
 To run the agent, simply call the `run` function with an input.
@@ -111,6 +127,18 @@ print(run)
 # Cost: $ 0.0027
 # Latency: 6.54s
 ```
+
+When you call `run`, the associated agent will be created on WorkflowAI Cloud (or your self-hosted server) if it does not already exist.
+
+{% hint style="info" %}
+The agent id will be a slugified version of the function name unless specified explicitly using the `id` parameter, which is **recommended**.
+
+```python
+@workflowai.agent(id="oracle-agent")
+async def answer_question(input: Input) -> Output:
+    ...
+```
+{% endhint %}
 
 ### Override the default model
 
@@ -180,4 +208,36 @@ async for chunk in answer_question.stream(Input(question="What is the history of
 # }
 # ==================================================
 # ...
+```
+
+{% hint style="info" %}
+Even when using streaming, partial outputs are returned as valid output schemas.
+{% endhint %}
+
+### Error handling
+
+Read more about error handling in the [Errors](/docs/sdk/python/errors.md) section.
+
+### Cache
+
+To save money and improve latency, WorkflowAI supports caching.
+
+By default, the cache settings is `auto`, meaning that agent runs are cached when the temperature is 0
+(the default temperature value) and no tools are used. Which means that, when running the same agent (without tools) twice with the **exact** same input, the exact same output is returned and the underlying model is not called a second time.
+
+The cache usage string literal is defined in [cache_usage.py](https://github.com/WorkflowAI/workflowai-py/blob/main/workflowai/core/domain/cache_usage.py) file. There are 3 possible values:
+
+- `auto`: (default) Use cached results only when temperature is 0, and no tools are used
+- `always`: Always use cached results if available, regardless of model temperature
+- `never`: Never use cached results, always execute a new run
+
+```python
+# Never use cache
+run = agent.run(input, use_cache='never')
+
+# Always use cache
+run = agent.run(input, use_cache='always')
+
+# Auto (default): use cache when temperature is 0 and no tools are used
+run = agent.run(input)
 ```
