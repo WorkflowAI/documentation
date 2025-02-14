@@ -27,9 +27,7 @@ await triage_question.run(Input(question="How do I change my billing information
 
 Running this agent for the first time will automatically create a new version of the agent on WorkflowAI.
 
-You can also see the versions in the WorkflowAI dashboard.
-
-> https://workflowai.com/docs/agents/triage-agent/1/versions
+You can also see the versions in the [WorkflowAI dashboard](https://workflowai.com/docs/agents/triage-agent/1/versions).
 
 ![Versions](/docs/assets/images/agents/triage-agent/version-1.png)
 
@@ -105,13 +103,14 @@ Since WorkflowAI automatically saves all versions, you can refer to a version by
 ```
 
 {% hint style="info" %}
-Find the exact code from WorkflowAI **Code** section.
-> https://workflowai.com/docs/agents/triage-agent/1/code?selectedLanguage=Python
+You can also go to the [Code](https://workflowai.com/docs/agents/triage-agent/1/code?selectedLanguage=Python) section on WorkflowAI to view the generated code for a specific version.
 {% endhint %}
 
 ### Versions from a deployment
 
-To learn more about deployments, read the [Deployments](/docs/features/deployments) section first.
+{% hint style="info" %}
+To learn more about deployments, read the [Deployments](../../features/deployments.md) section first.
+{% endhint %}
 
 Deployments allow you to refer to a version of an agent's parameters from your code that's managed from WorkflowAI dashboard, allowing you to update the agent's parameters without changing your code.
 

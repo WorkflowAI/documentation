@@ -46,12 +46,11 @@
 
 ## Python SDK
 * [Get started](sdk/python/get-started.md)
-* Concepts
-    * [@agent](sdk/python/agent.md)
-    * [Versions](sdk/python/versions.md)
-    * [Multimodality](sdk/python/multimodality.md)
-    * [Tools](sdk/python/tools.md)
-    * [Errors](sdk/python/errors.md)
+* [@agent](sdk/python/agent.md)
+* [Versions](sdk/python/versions.md)
+* [Multimodality](sdk/python/multimodality.md)
+* [Tools](sdk/python/tools.md)
+* [Errors](sdk/python/errors.md)
 * [Examples](sdk/python/examples.md)
 * [Workflows](sdk/python/workflows.md)
 

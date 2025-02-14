@@ -34,5 +34,9 @@ async def main():
     run = await answer_question.run(Input(question=question), model=Model.CLAUDE_3_5_SONNET_LATEST)
     print(f"Answer: {run}")
 
+    print("\nTrying with temperature=0.5...")
+    run = await answer_question.run(Input(question=question), temperature=0.5)
+    print(f"Answer: {run}")
+
 if __name__ == "__main__":
     asyncio.run(main()) 

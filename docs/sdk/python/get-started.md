@@ -154,13 +154,12 @@ async for chunk in get_capital_info.stream(
 
 {% endtabs %}
 
-🌅 So simple! And the agent created by the SDK is also available in the <a href="https://workflowai.com/docs/agents/get-capital-info" target="_blank">Playground</a>.
+🌅 So simple! And the agent created by the SDK is also available in the [Playground](https://workflowai.com/docs/agents/get-capital-info).
 
 ![Playground](/docs/assets/images/playground/docs-capital-info.png)
 
-Runs are automatically logged as well.
+Runs are automatically logged as well from the [Runs](https://workflowai.com/docs/agents/get-capital-info/1/runs?page=0) section.
 
-> https://workflowai.com/docs/agents/get-capital-info/1/runs?page=0
 ![Runs](/docs/assets/images/runs/docs-capital-info.png)
 
 ## Next steps

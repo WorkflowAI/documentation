@@ -87,6 +87,17 @@ async def answer_question(input: Input) -> Output:
 
 Instructions are passed to the LLM via the system prompt.
 
+### Temperature
+
+The temperature is a parameter that controls the randomness of the output. It is a float between 0 and 1. The default temperature is 0.
+
+```python
+run = await answer_question.run(
+    Input(question="What is the history of Paris?"),
+    temperature=0.5
+)
+```
+
 ## Model
 
 The model is the LLM that will be used to generate the output. WorkflowAI offers a unified interface for all the models it supports from OpenAI, Anthropic, Google, and more. Simply pass the model you want to use to the `model` parameter.
@@ -216,7 +227,7 @@ Even when using streaming, partial outputs are returned as valid output schemas.
 
 ### Error handling
 
-Read more about error handling in the [Errors](/docs/sdk/python/errors.md) section.
+Read more about error handling in the [Errors](./errors.md) section.
 
 ### Cache
 
