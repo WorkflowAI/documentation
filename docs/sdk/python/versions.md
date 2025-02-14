@@ -60,7 +60,7 @@ await triage_question.run(Input(question="How do I change my billing information
 
 This will create a new minor version of the agent associated with the `CLAUDE_3_5_HAIKU_LATEST` model.
 
-![Versions](/docs/assets/images/agents/triage-agent/version-1.2.png)
+![Versions that have the same parameters are grouped together](/docs/assets/images/agents/triage-agent/version-1.2.png)
 
 ## Major Versions
 
@@ -90,17 +90,18 @@ Changelog between major versions will be generated automatically.
 
 ## Versions from code, version id, or a deployment
 
-WorkflowAI allows you to refer to a version of an agent from your code, a version id, or a deployment.
+WorkflowAI allows you to refer to a version of an agent from your code, a minor version id, or a deployment.
 
 ### Versions from code
 
-Setting a docstring or a model in the agent decorator signals the client that the agent parameters are fixed and configured via code.
+Setting a docstring or a model in the `@workflowai.agent` decorator signals the client that the agent parameters are fixed and configured via code.
 
 ### Versions from version id
 
-Since WorkflowAI automatically saves all versions, you can refer to a version by its id.
+Since WorkflowAI automatically saves all versions, you can refer to a minor version by its id.
 
 ```python
+# this agent will use the version 2.1
 @workflowai.agent(id="triage-agent", version="2.1")
 ```
 
