@@ -6,9 +6,9 @@ First, read our introduction to [tools](../../concepts/tools.md).
 
 Tools allow enhancing an agent's capabilities by allowing it to call external functions. Tools enable the creation of agents that can perform actions, retrieve information, and make decisions based on real-time data.
 
-## Defining tools
+## Defining custom tools
 
-Tools are defined as regular python functions, and can be async or sync.
+Custom tools are defined as regular python functions, and can be async or sync.
 
 ```python
 # Sync tool
@@ -45,7 +45,7 @@ async def answer_question(_: AnswerQuestionInput) -> AnswerQuestionOutput:
     ...
 ```
 
-If an agent has `tools`, and the model
+If an agent has access to `tools`, and the model
 deems that tools are needed for a particular run, the agent will:
 - call all tools in parallel
 - wait for all tools to complete
@@ -55,7 +55,9 @@ deems that tools are needed for a particular run, the agent will:
 - until either no tool calls are requested, the max iteration (10 by default) or the agent has run to completion
 
 ```python
-run = await answer_question(AnswerQuestionInput(question="What is the current time in Phoenix, AZ?"))
+run = await answer_question(
+    AnswerQuestionInput(question="What is the current time in Phoenix, AZ?")
+)
 print(run)
 
 # Output:
@@ -71,7 +73,13 @@ print(run)
 
 It's important to understand that there are actually two runs created in a single agent `run` call:
 - the first run returns an empty output with a tool call request with a timezone
+```
+# First run
+```
 - the second run returns the current time in the given timezone
+```
+# Second run
+```
 
 Only the last run is returned to the caller.
 
@@ -93,10 +101,14 @@ print(run)
 ```
 
 {% hint style="info" %}
-You can directly use the web [Playground](../../features/playground.md) to test custom tools, since the tools execution is done through your code.
+You can not directly use the web [Playground](../../features/playground.md) to test custom tools, since the tools execution is done through your code.
 {% endhint %}
 
 ### Hosted tools
+
+{% hint style="warning" %}
+This section is not up to date.
+{% endhint %}
 
 WorkflowAI hosts a few tools:
 
@@ -120,7 +132,11 @@ async def search_web(input: SearchWebInput) -> SearchWebOutput:
 ```
 
 ```python
-run = await search_web(SearchWebInput(query="When was the last iPhone released?"))
+run = await search_web(
+    SearchWebInput(
+        query="When was the last iPhone released?"
+    )
+)
 print(run)
 
 # Output:
