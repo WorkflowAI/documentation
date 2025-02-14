@@ -105,7 +105,7 @@ Since WorkflowAI automatically saves all versions, you can refer to a version by
 ```
 
 {% hint style="info" %}
-Find the exact code from WorkflowAI Code section.
+Find the exact code from WorkflowAI **Code** section.
 > https://workflowai.com/docs/agents/triage-agent/1/code?selectedLanguage=Python
 {% endhint %}
 
@@ -113,8 +113,15 @@ Find the exact code from WorkflowAI Code section.
 
 To learn more about deployments, read the [Deployments](/docs/features/deployments) section first.
 
-Deployments allow you to refer to a version of an agent's parameters from your code that's managed from WorkflowAI dashboard. The following code will use the version of the agent named "production" which is a lot more flexible than changing the function parameters when running in production.
+Deployments allow you to refer to a version of an agent's parameters from your code that's managed from WorkflowAI dashboard, allowing you to update the agent's parameters without changing your code.
 
 ```python
+# production
 @workflowai.agent(deployment="production") # or simply @workflowai.agent()
+
+# development
+@workflowai.agent(deployment="development")
+
+# staging
+@workflowai.agent(deployment="staging")
 ```
