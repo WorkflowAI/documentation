@@ -83,6 +83,8 @@ It's important to understand that there are actually two runs created in a singl
 
 Only the last run is returned to the caller.
 
+Another example:
+
 ```python
 run = await answer_question(AnswerQuestionInput(question="What is the latest version of workflowai package?"))
 print(run)
@@ -101,7 +103,7 @@ print(run)
 ```
 
 {% hint style="info" %}
-You can not directly use the web [Playground](../../features/playground.md) to test custom tools, since the tools execution is done through your code.
+You can **not** directly use the web [Playground](../../features/playground.md) to test custom tools, since the tools execution is done through your code.
 {% endhint %}
 
 ### Hosted tools

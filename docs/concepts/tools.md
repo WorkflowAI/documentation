@@ -28,7 +28,7 @@ Custom tools are tools specific to your application. You are responsible for run
 #### Using code
 
 {% hint style="info" %}
-Adding a custom tool through code is currently only available with our Python SDK.
+Adding a custom tool through code is currently only available with our Python SDK. Read the documentation for [adding custom tools](../sdk/python/tools.md).
 {% endhint %}
 
 ### Handling tool calls

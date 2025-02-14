@@ -1,5 +1,11 @@
 # Get started
 
+{% hint style="info" %}
+For engineers.
+{% endhint %}
+
+WorkflowAI Python SDK is a library that allows you to programmatically create and run agents in Python, while being able to use the full power of the WorkflowAI platform.
+
 ## Install the SDK
 
 {% hint style="info" %}

@@ -121,7 +121,12 @@ async def answer_pdf_question(input: PDFQuestionInput) -> PDFAnswerOutput:
 ## From a remote file
 pdf_url = "https://microsoft.gcs-web.com/static-files/b3eef820-6757-44ea-9f98-3963bace4837"
 pdf = File(url=pdf_url)
-agent_run = await answer_pdf_question.run(PDFQuestionInput(pdf=pdf, question="What are the main takeaways from the document?"))
+agent_run = await answer_pdf_question.run(
+    PDFQuestionInput(
+        pdf=pdf,
+        question="What are the main takeaways from the document?"
+    )
+)
 print(agent_run)
 
 # Output:
@@ -135,11 +140,16 @@ with open(pdf_path, "rb") as pdf_file:
     content = pdf_file.read()
 
 pdf = File(content_type="application/pdf", data=content)
-agent_run = await answer_pdf_question.run(PDFQuestionInput(pdf=pdf, question="What are the main takeaways from the document?"))
+agent_run = await answer_pdf_question.run(
+    PDFQuestionInput(
+        pdf=pdf,
+        question="What are the main takeaways from the document?"
+    )
+)
 ```
 
 {% hint style="info" %}
-Try this `pdf- agent with [your own PDF in the WorkflowAI playground](https://workflowai.com/docs/agents/pdf-answer-bot/1).
+Try this `pdf-answer-bot` with [your own PDF in the WorkflowAI playground](https://workflowai.com/docs/agents/pdf-answer-bot/1).
 {% endhint %}
 
 ## Audio
