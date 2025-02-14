@@ -46,13 +46,13 @@
 
 ## Python SDK
 * [Get started](sdk/python/get-started.md)
-* [@agent](sdk/python/agent.md)
+* [@workflowai.agent](sdk/python/agent.md)
 * [Versions](sdk/python/versions.md)
 * [Multimodality](sdk/python/multimodality.md)
 * [Tools](sdk/python/tools.md)
 * [Errors](sdk/python/errors.md)
-* [Examples](sdk/python/examples.md)
-* [Workflows](sdk/python/workflows.md)
+* [Examples](https://github.com/WorkflowAI/workflowai-py/tree/main/examples)
+* [Workflows](https://github.com/WorkflowAI/workflowai-py/tree/main/examples/workflows)
 
 ## Support
 * [Slack](https://workflowai.com/slack)

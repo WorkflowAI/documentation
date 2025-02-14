@@ -1,4 +1,4 @@
-# How `@agent` works
+# How `@workflowai.agent` works
 
 An agent is composed of three parts:
 
@@ -30,6 +30,10 @@ class Input(BaseModel):
 class Output(BaseModel):
     answer: str
 ```
+
+{% hint style="success" %}
+Read more about why schemas are a good idea in the [Schemas](../../concepts/schemas.md#why-are-schemas-a-good-idea) section.
+{% endhint %}
 
 ### Descriptions
 
@@ -122,6 +126,10 @@ When a model is retired, it will be replaced dynamically by a newer version of t
 {% endhint %}
 
 ## Running the agent
+
+{% hint style="warning" %}
+Before you run the agent, make sure you have [setup the client](./get-started.md#api-key).
+{% endhint %}
 
 To run the agent, simply call the `run` function with an input.
 

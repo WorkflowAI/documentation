@@ -137,6 +137,7 @@ print(output)
 {% tab title="OpenAI (stream)" %}
 
 ```python
+# use `.stream()` to stream the output
 async for chunk in get_capital_info.stream(
     CityInput(city="New York"),
     model=Model.GPT_4O_MINI_LATEST
@@ -160,7 +161,11 @@ async for chunk in get_capital_info.stream(
 
 {% endtabs %}
 
-🌅 So simple! And the agent created by the SDK is also available in the [Playground](https://workflowai.com/docs/agents/get-capital-info).
+{% hint style="success" %}
+You have created your first agent! Congratulations.
+{% endhint %}
+
+Agents created by the SDK are also available in the [Playground](https://workflowai.com/docs/agents/get-capital-info/1).
 
 ![Playground](/docs/assets/images/playground/docs-capital-info.png)
 

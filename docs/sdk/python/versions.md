@@ -119,11 +119,11 @@ Deployments allow you to refer to a version of an agent's parameters from your c
 
 ```python
 # production
-@workflowai.agent(deployment="production") # or simply @workflowai.agent()
+@workflowai.agent(id="triage-agent", deployment="production") # or simply @workflowai.agent()
 
 # development
-@workflowai.agent(deployment="development")
+@workflowai.agent(id="triage-agent", deployment="development")
 
 # staging
-@workflowai.agent(deployment="staging")
+@workflowai.agent(id="triage-agent", deployment="staging")
 ```
