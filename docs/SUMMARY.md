@@ -44,20 +44,16 @@
 * [Reliability](cloud/reliability.md)
 * [Compliance](cloud/compliance.md)
 
-## SDKs
-* Python
-  * [Get started](sdk/python/get-started.md)
-  * Concepts
+## Python SDK
+* [Get started](sdk/python/get-started.md)
+* Concepts
     * [@agent](sdk/python/agent.md)
+    * [Versions](sdk/python/versions.md)
     * [Multimodality](sdk/python/multimodality.md)
     * [Tools](sdk/python/tools.md)
     * [Errors](sdk/python/errors.md)
-    * [Versions](sdk/python/versions.md)
-  * [Workflows](sdk/python/workflows.md)
-  * [Examples](sdk/python/examples.md)
-## Advanced Topics
-* [Workflows](advanced/workflows.md)
-* [RAG Integration](advanced/rag.md)
+* [Examples](sdk/python/examples.md)
+* [Workflows](sdk/python/workflows.md)
 
 ## Support
 * [Slack](https://workflowai.com/slack)
