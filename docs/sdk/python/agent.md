@@ -14,8 +14,8 @@ The schema has two structured parts:
 
 | | |
 |------|-------------|
-| Input | Defines the variables that the agent will receive as input |
-| Output | Defines the variables that the agent will return as output |
+| **Input** | Defines the variables that the agent will receive as input |
+| **Output** | Defines the variables that the agent will return as output |
 
 The input and output are defined using [Pydantic](https://docs.pydantic.dev/latest/) models.
 
@@ -89,7 +89,11 @@ async def answer_question(input: Input) -> Output:
     ...
 ```
 
-Instructions are passed to the LLM via the system prompt.
+Instructions are automatically passed to the LLM via the system prompt.
+
+```
+system_prompt = """<instructions>You are an expert in history. Answer the question with attention to detail and historical accuracy.</instructions>"""
+```
 
 ### Variables in instructions
 
@@ -123,9 +127,13 @@ run = await answer_question.run(
 # View prompt
 # https://workflowai.com/docs/agents/answer-question-with-word-count/1/runs?page=0&taskRunId=019509ed-017e-7059-4c25-6137ebdb7dcd
 # System prompt:
-# The answer should be less than 5 words. Answer the following question: What is artificial intelligence?
+# <instructions>The answer should be less than 5 words. Answer the following question: What is artificial intelligence?</instructions>
 # { "answer": "Smart computer systems learning" }
 ```
+
+{% hint style="warning" %}
+Custom Jinja2 Template Tags Being Incorrectly Rendered as GitBook Custom Blocks
+{% endhint %}
 
 <details>
 <summary>Example: Code Review Agent</summary>
@@ -213,7 +221,7 @@ Set the model in the `@agent` decorator.
 import workflowai
 from workflowai import Model
 
-@workflowai.agent(model=Model.GPT_4O_LATEST)
+@workflowai.agent(id="answer-question", model=Model.GPT_4O_LATEST)
 async def answer_question(input: Input) -> Output:
     ...
 ```
@@ -225,7 +233,7 @@ When a model is retired, it will be replaced dynamically by a newer version of t
 ## Running the agent
 
 {% hint style="warning" %}
-Before you run the agent, make sure you have [setup the client](./get-started.md#api-key).
+Before you run the agent, make sure you have [setup the WorkflowAI client](./get-started.md#api-key).
 {% endhint %}
 
 To run the agent, simply call the `run` function with an input.
@@ -250,7 +258,7 @@ When you call `run`, the associated agent will be created on WorkflowAI Cloud (o
 The agent id will be a slugified version of the function name unless specified explicitly using the `id` parameter, which is **recommended**.
 
 ```python
-@workflowai.agent(id="oracle-agent")
+@workflowai.agent(id="answer-question")
 async def answer_question(input: Input) -> Output:
     ...
 ```
