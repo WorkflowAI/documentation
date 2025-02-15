@@ -80,7 +80,7 @@ values.
 Instructions are helpful for the agent to understand the task it needs to perform. Use docstring to add instructions to the agent.
 
 ```python
-@workflowai.agent()
+@workflowai.agent(id="answer-question")
 async def answer_question(input: Input) -> Output:
     """
     You are an expert in history.
@@ -90,6 +90,103 @@ async def answer_question(input: Input) -> Output:
 ```
 
 Instructions are passed to the LLM via the system prompt.
+
+### Variables in instructions
+
+You can customize your agent's instructions using [Jinja2](https://jinja.palletsprojects.com/) template variables in the docstring. These variables are automatically filled with values from your input model's fields, giving you precise control over the final prompt.
+
+```python
+class Input(BaseModel):
+    question: str
+    word_count: int
+
+class Output(BaseModel):
+    answer: str
+
+@workflowai.agent(id="answer-question-with-word-count", model=Model.CLAUDE_3_5_HAIKU_LATEST)
+async def answer_question(input: Input) -> Output:
+    """
+    The answer should be less than {{ word_count }} words.
+    Answer the following question:
+    {{ question }}
+    """
+    ...
+
+# Run the agent
+run = await answer_question.run(
+    Input(
+        question="What is artificial intelligence?",
+        word_count=5
+    )
+)
+
+# View prompt
+# https://workflowai.com/docs/agents/answer-question-with-word-count/1/runs?page=0&taskRunId=019509ed-017e-7059-4c25-6137ebdb7dcd
+# System prompt:
+# The answer should be less than 5 words. Answer the following question: What is artificial intelligence?
+# { "answer": "Smart computer systems learning" }
+```
+
+<details>
+<summary>Example: Code Review Agent</summary>
+
+```python
+class CodeReviewInput(BaseModel):
+    language: str = Field(description="Programming language of the code")
+    style_guide: str = Field(description="Style guide to follow")
+    is_production: bool = Field(description="Whether this is a production review")
+    focus_areas: list[str] = Field(description="Areas to focus on during review", default_factory=list)
+
+class CodeReviewOutput(BaseModel):
+    """Output from a code review."""
+    issues: list[str] = Field(
+        default_factory=list,
+        description="List of identified issues or suggestions for improvement"
+    )
+    compliments: list[str] = Field(
+        default_factory=list,
+        description="List of positive aspects and good practices found in the code"
+    )
+    summary: str = Field(
+        description="A brief summary of the code review findings"
+    )
+
+@workflowai.agent(id="code-review")
+async def review_code(review_input: CodeReviewInput) -> CodeReviewOutput:
+    """
+    You are a code reviewer for {{ language }} code.
+    Please review according to the {{ style_guide }} style guide.
+
+    {% if is_production %}
+    This is a PRODUCTION review - be extra thorough and strict.
+    {% else %}
+    This is a development review - focus on maintainability.
+    {% endif %}
+
+    {% if focus_areas %}
+    Key areas to focus on:
+    {% for area in focus_areas %}
+    {{ loop.index }}. {{ area }}
+    {% endfor %}
+    {% endif %}
+    """
+    ...
+```
+
+</details>
+
+{% hint style="info" %}
+We recommend using CursorAI, Claude or ChatGPT to help generate the Jinja2 template.
+
+The template uses [Jinja2](https://jinja.palletsprojects.com/) syntax and supports common templating features including:
+
+- Variable substitution: `{{ variable }}`
+- Conditionals: `{% if condition %}...{% endif %}`
+- Loops: `{% for item in items %}...{% endfor %}`
+- Loop indices: `{{ loop.index }}`
+
+See the [Jinja2 documentation](https://jinja.palletsprojects.com/) for the full template syntax and capabilities.
+{% endhint %}
 
 ### Temperature
 
