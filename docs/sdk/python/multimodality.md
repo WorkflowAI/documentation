@@ -199,6 +199,10 @@ async def detect_audio_spam(input: AudioInput) -> AudioOutput:
     ...
 ```
 
+{% hint style="warning" %}
+This part of the documentation is not yet complete.
+{% endhint %}
+
 Once the agent is created, you can use `agent.list_models()` to see which models support audio input.
 
 ```python

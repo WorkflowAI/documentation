@@ -181,6 +181,9 @@ async def review_code(review_input: CodeReviewInput) -> CodeReviewOutput:
     {{ loop.index }}. {{ area }}
     {% endfor %}
     {% endif %}
+
+    Code to review:
+    {{ code }}
     """
     ...
 ```

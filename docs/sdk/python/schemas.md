@@ -51,13 +51,7 @@ class PIIExtraction(BaseModel):
 
 class PIIInput(BaseModel):
     """Input model for PII extraction."""
-    text: str = Field(
-        description="The text to analyze for PII",
-        examples=[
-            "Hi, I'm John Doe. You can reach me at john.doe@email.com or call 555-0123. "
-            "My SSN is 123-45-6789 and I live at 123 Main St, Springfield, IL 62701.",
-        ],
-    )
+    text: str = Field(description="The text to analyze for PII")
 
 
 class PIIOutput(BaseModel):
