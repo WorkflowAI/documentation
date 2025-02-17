@@ -225,3 +225,7 @@ print(agent_run)
 ```
 
 ## Video
+
+{% hint style="warning" %}
+Video file as input is not supported yet.
+{% endhint %}
