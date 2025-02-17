@@ -91,7 +91,11 @@ Images generation is not supported yet.
 
 Use the `File` class to add PDF, documents, or other files as input to an agent.
 
-In the following example, we'll build an agent that can answer questions based on a PDF document.
+In the following example, an agent is created that can answer questions based on a PDF document.
+
+{% hint style="info" %}
+This example uses the `GEMINI_2_0_FLASH_LATEST` model - a powerful and cost-effective multimodal model optimized for processing PDF documents.
+{% endhint %}
 
 ```python
 import workflowai
@@ -107,7 +111,7 @@ class PDFAnswerOutput(BaseModel):
     answer: str = Field(description="The answer to the question based on the PDF content")
     quotes: list[str] = Field(description="Relevant quotes from the PDF that support the answer")
 
-@workflowai.agent(id="pdf-answer-bot", model=Model.CLAUDE_3_5_SONNET_LATEST)
+@workflowai.agent(id="pdf-answer-bot", model=Model.GEMINI_2_0_FLASH_LATEST)
 async def answer_pdf_question(input: PDFQuestionInput) -> PDFAnswerOutput:
     """
     Analyze the provided PDF document and answer the given question.
@@ -124,14 +128,28 @@ pdf = File(url=pdf_url)
 agent_run = await answer_pdf_question.run(
     PDFQuestionInput(
         pdf=pdf,
-        question="What are the main takeaways from the document?"
+        question="What are the main points from the document?"
     )
 )
 print(agent_run)
 
 # Output:
 # ==================================================
-# ...
+# ==================================================
+# {
+#   "answer": "This is a SEC Form 4 filing, a Statement of Changes in Beneficial Ownership, for Teri List regarding Microsoft Corporation (MSFT). The document details non-derivative securities acquired and beneficially owned, as well as derivative securities. Teri List has granted power of attorney to Julia Stark, Benjamin O. Orndorff, Michael Pressman, Keith R. Dolliver and Christyne Mayberry.",
+#   "quotes": [
+#     "STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP",
+#     "MICROSOFT CORP [ MSFT]",
+#     "Common Stock",
+#     "Julia Stark, Attorney-in-fact for Teri List",
+#     "I revoke my prior Microsoft Corporation Power of Attorney.",
+#     "The individuals who are authorized to act as my Attorney-In-Fact under this Power of Attorney are as follows:\nJulia Stark\nBenjamin O. Orndorff\nMichael Pressman\nKeith R. Dolliver\nChristyne Mayberry"
+#   ]
+# }
+# ==================================================
+# Cost: $ 0.00033
+# Latency: 3.61s
 
 ## From a local file
 
@@ -143,9 +161,10 @@ pdf = File(content_type="application/pdf", data=content)
 agent_run = await answer_pdf_question.run(
     PDFQuestionInput(
         pdf=pdf,
-        question="What are the main takeaways from the document?"
+        question="What are the main points from the document?"
     )
 )
+print(agent_run)
 ```
 
 {% hint style="info" %}

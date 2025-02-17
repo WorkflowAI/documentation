@@ -12,7 +12,7 @@ class PDFAnswerOutput(BaseModel):
     answer: str = Field(description="The answer to the question based on the PDF content")
     quotes: list[str] = Field(description="Relevant quotes from the PDF that support the answer")
 
-@workflowai.agent(id="pdf-answer-bot", model=Model.CLAUDE_3_5_SONNET_LATEST)
+@workflowai.agent(id="pdf-answer-bot", model=Model.GEMINI_2_0_FLASH_LATEST)
 async def answer_pdf_question(input: PDFQuestionInput) -> PDFAnswerOutput:
     """
     Analyze the provided PDF document and answer the given question.
@@ -29,7 +29,7 @@ async def main():
     run = await answer_pdf_question.run(
         PDFQuestionInput(
             pdf=pdf,
-            question="What are Microsoft's key business priorities mentioned in the report?"
+            question="What are the main points from the PDF?"
         )
     )
     print(run)
