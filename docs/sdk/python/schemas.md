@@ -84,7 +84,7 @@ class PIIOutput(BaseModel):
 ## Image
 
 {% hint style="info" %}
-Read about image schemas in the [Multimodality](/docs/sdk/python/multimodality.md) section.
+Read about image schemas in the [Multimodality](/docs/sdk/python/multimodality.md#images) section.
 {% endhint %}
 
 ```python
@@ -102,6 +102,10 @@ class ImageOutput(BaseModel):
 ```
 
 ## Audio
+
+{% hint style="info" %}
+Read about audio schemas in the [Multimodality](/docs/sdk/python/multimodality.md#audio) section.
+{% endhint %}
 
 ```python
 class AudioInput(BaseModel):
