@@ -234,7 +234,7 @@ async def answer_question(input: Input) -> Output:
 ```
 
 {% hint style="info" %}
-When a model is retired, it will be replaced dynamically by a newer version of the same model with the same or a lower price so using a model is always guaranteed to work in the future.
+When a model is retired or deprecated, WorkflowAI automatically upgrades it to the latest compatible version with equivalent or better pricing. This ensures your agents continue working seamlessly without any code changes needed on your end.
 {% endhint %}
 
 ## Running the agent
@@ -449,3 +449,41 @@ confirmation_run = await run.reply(
     user_message="Are you sure?"
 )
 ```
+
+## Using multiple clients
+
+You might want to avoid using the shared client, for example if you are using multiple API keys or accounts.
+It is possible to achieve this by manually creating client instances
+
+```python
+from workflowai import WorkflowAI
+
+client = WorkflowAI(
+    url=...,
+    api_key=...,
+)
+
+# Use the client to create and run agents
+@client.agent()
+def my_agent(agent_input: Input) -> Output:
+    ...
+```
+
+## Field properties
+
+Pydantic allows a variety of other validation criteria for fields: minimum, maximum, pattern, etc.
+This additional criteria are included the JSON Schema that is sent to WorkflowAI, and are sent to the model.
+
+```python
+class Input(BaseModel):
+    name: str = Field(min_length=3, max_length=10)
+    age: int = Field(ge=18, le=100)
+    email: str = Field(pattern=r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
+```
+
+These arguments can be used to stir the model in the right direction. The caveat is have a
+validation that is too strict can lead to invalid generations. In case of an invalid generation:
+
+- WorkflowAI retries the inference once by providing the model with the invalid output and the validation error
+- if the model still fails to generate a valid output, the run will fail with an `InvalidGenerationError`.
+  the partial output is available in the `partial_output` attribute of the `InvalidGenerationError`

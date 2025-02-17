@@ -75,6 +75,34 @@ class PIIOutput(BaseModel):
     )
 ```
 
+## Extract positive and negative points from transcript
+
+```python
+class FeedbackInput(BaseModel):
+    """Input for analyzing a customer feedback call."""
+    transcript: str = Field(description="The full transcript of the customer feedback call.")
+    call_date: date = Field(description="The date when the call took place.")
+
+# Model representing a single feedback point with supporting evidence
+class FeedbackPoint(BaseModel):
+    """A specific feedback point with its supporting quote."""
+    point: str = Field(description="The main point or insight from the feedback.")
+    quote: str = Field(description="The exact quote from the transcript supporting this point.")
+    timestamp: str = Field(description="The timestamp or context of when this was mentioned in the call.")
+
+# Model representing the structured analysis of the customer feedback call
+class FeedbackOutput(BaseModel):
+    """Structured analysis of the customer feedback call."""
+    positive_points: list[FeedbackPoint] = Field(
+        default_factory=list,
+        description="List of positive feedback points, each with a supporting quote."
+    )
+    negative_points: list[FeedbackPoint] = Field(
+        default_factory=list,
+        description="List of negative feedback points, each with a supporting quote."
+    )
+```
+
 ## Image
 
 {% hint style="info" %}
