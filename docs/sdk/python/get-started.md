@@ -36,6 +36,10 @@ workflowai.init(
 )
 ```
 
+{% hint style="success" %}
+`run.workflowai.com` is our [globally distributed, highly available endpoint](/docs/cloud/reliability.md)
+{% endhint %}
+
 {% hint style="info" %}
 You can also set the `WORKFLOWAI_API_URL` environment variable to point to your self-hosted WorkflowAI.
 {% endhint %}

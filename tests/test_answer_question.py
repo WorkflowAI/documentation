@@ -38,5 +38,9 @@ async def main():
     run = await answer_question.run(Input(question=question), temperature=0.5)
     print(f"Answer: {run}")
 
+    print("\nReply to the run...")
+    reply_run = await run.reply(user_message="Tell me more about the 18th century.")
+    print(f"Answer: {reply_run}")
+
 if __name__ == "__main__":
     asyncio.run(main()) 

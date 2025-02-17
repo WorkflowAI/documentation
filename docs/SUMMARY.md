@@ -47,6 +47,7 @@
 ## Python SDK
 * [Get started](sdk/python/get-started.md)
 * [@workflowai.agent](sdk/python/agent.md)
+* [Schemas](sdk/python/schemas.md)
 * [Versions](sdk/python/versions.md)
 * [Multimodality](sdk/python/multimodality.md)
 * [Tools](sdk/python/tools.md)

@@ -35,6 +35,10 @@ class Output(BaseModel):
 Read more about why schemas are a good idea in the [Schemas](../../concepts/schemas.md#why-are-schemas-a-good-idea) section.
 {% endhint %}
 
+{% hint style="info" %}
+Find more examples of schemas in the [Schemas](/docs/sdk/python/schemas.md) section.
+{% endhint %}
+
 ### Descriptions
 
 Adding descriptions to the input and output fields is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM. And so, it's a good way to align the agent's behavior.
@@ -364,4 +368,81 @@ run = agent.run(input, use_cache='always')
 
 # Auto (default): use cache when temperature is 0 and no tools are used
 run = agent.run(input)
+```
+
+## Reply to a run
+
+For some use-cases (for example, chatbots), you want to reply to a previously created run to maintain conversation history. Use the `reply` method from the `Run` object.
+
+For example, a simple travel chatbot agent can be created as follows:
+
+```python
+class ChatbotInput(BaseModel):
+    user_message: str
+
+class Recommendation(BaseModel):
+    name: str
+    address: str
+
+class ChatbotOutput(BaseModel):
+    assistant_message: str
+    # You can add structured output to the assistant reply
+    recommendations: list[Recommendation]
+
+@workflowai.agent(id="travel-assistant", model=Model.GPT_4O_LATEST)
+async def chat(input: ChatbotInput) -> ChatbotOutput:
+    """
+    A helpful travel assistant that can provide recommendations and answer questions about destinations.
+    """
+    ...
+
+# Initial question from user
+run = await chat.run(ChatbotInput(user_message="I'm planning a trip to Paris. What are the must-see attractions?"))
+
+# Output:
+# ==================================================
+# {
+#   "assistant_message": "Paris is a city rich in history, culture, and beauty. Here are some must-see attractions to include in your itinerary.",
+#   "recommendations": [
+#     {
+#       "name": "Eiffel Tower",
+#       "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France"
+#     },
+#     ...
+#   ]
+# }
+```
+
+When using `run.reply`, WorkflowAI will automatically keep the conversation history.
+
+{% hint style="warning" %}
+Note that the output schema of the reply will use the same output schema as the original run.
+{% endhint %}
+
+```python
+# Note that the follow-up question does not mention Paris because the conversation history is automatically kept.
+reply_run = await run.reply(user_message="When is the best time of year to visit?")
+print(reply_run)
+
+# Output:
+# Note that the output schema include a `recommendations` field, because the output schema of the original run includes a `recommendations` field.
+# ==================================================
+# {
+#   "assistant_message": "The best time to visit Paris is during the spring (April to June) and fall (September to November) seasons. During these months, the weather is generally mild and pleasant, and the city is less crowded compared to the peak summer months. Spring offers blooming flowers and vibrant parks, while fall provides a charming atmosphere with colorful foliage. Additionally, these periods often feature cultural events and festivals, enhancing the overall experience of your visit.",
+#   "recommendations": [] 
+# }
+# ==================================================
+# Cost: $ 0.00206
+# Latency: 2.08s
+```
+
+You can continue to reply to the run as many times as you want.
+
+Another use-case for `run.reply` is to ask a follow-up question, or ask the LLM to double-check its previous answer.
+
+```python
+# Double-check the answer
+confirmation_run = await run.reply(
+    user_message="Are you sure?"
+)
 ```
