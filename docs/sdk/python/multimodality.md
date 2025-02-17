@@ -173,4 +173,55 @@ Try this `pdf-answer-bot` with [your own PDF in the WorkflowAI playground](https
 
 ## Audio
 
+Some LLMs can also process audio files directly, without the need to transcribe them first.
+
+First, let's use the `Audio` class to add audio as input to an agent.
+
+```python
+from workflowai.fields import Audio
+
+class AudioInput(BaseModel):
+    audio: Audio = Field()
+```
+
+Then, let's create an agent that can detect spam in audio.
+
+```python
+class AudioOutput(BaseModel):
+    is_spam: bool = Field(description="Whether the audio contains spam")
+    explanation: str = Field(description="Explanation of the result")
+
+@workflowai.agent(id="audio-spam-detector")
+async def detect_audio_spam(input: AudioInput) -> AudioOutput:
+    """
+    Analyze the provided audio file and determine if it contains spam.
+    """
+    ...
+```
+
+Once the agent is created, you can use `agent.list_models()` to see which models support audio input.
+
+```python
+models = await detect_audio_spam.list_models()
+print(models)
+
+# ...
+```
+
+Then, you can run the agent with an audio file.
+
+```python
+# Run the agent
+audio_path = "path/to/audio.mp3"
+with open(audio_path, "rb") as audio_file:
+    content = audio_file.read()
+
+audio = Audio(content_type="audio/mpeg", data=content)
+agent_run = await detect_audio_spam.run(
+    AudioInput(audio=audio),
+    model=Model.GEMINI_2_0_FLASH_LATEST
+)
+print(agent_run)
+```
+
 ## Video
