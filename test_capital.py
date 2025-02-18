@@ -6,8 +6,8 @@ from workflowai.models import Model
 
 # Initialize WorkflowAI
 workflowai.init(
-    api_key=os.environ.get("WORKFLOWAI_API_KEY"),  # Make sure to set this environment variable
-    base_url="https://run.workflowai.com",  # This is the default and can be omitted
+    api_key=os.environ.get("WORKFLOWAI_API_KEY"),  # This is the default and can be omitted
+    url="https://run.workflowai.com",  # This is the default and can be omitted
 )
 
 class CityInput(BaseModel):
