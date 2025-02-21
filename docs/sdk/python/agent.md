@@ -234,8 +234,36 @@ async def answer_question(input: Input) -> Output:
 ```
 
 {% hint style="info" %}
-When a model is retired or deprecated, WorkflowAI automatically upgrades it to the latest compatible version with equivalent or better pricing. This ensures your agents continue working seamlessly without any code changes needed on your end.
+When a model is retired or deprecated, WorkflowAI automatically upgrades it to the latest compatible version with equivalent or better pricing. This ensures your agents continue working seamlessly without any code changes needed on your end. Any code deployed will always continue to work.
 {% endhint %}
+
+### Supported models
+
+When building an agent that uses images, or audio, you need to use a model that supports multimodality. Use the `list_models()` function to get the list of models and check if they support your use case by checking `is_not_supported_reason` field.
+
+```python
+class AudioInput(BaseModel):
+    audio: Audio = Field()
+
+class AudioOutput(BaseModel):
+    transcription: str = Field()
+
+@agent(id="audio-transcription")
+async def audio_transcription(input: AudioInput) -> AudioOutput:
+    """
+    Transcribe the audio file.
+    """
+    ...
+
+models = await audio_transcription.list_models()
+for model in models:
+    if model.is_not_supported_reason is None:
+        print(f"{model.id} supports audio transcription")
+    else:
+        print(f"{model.id} does not support audio transcription: {model.is_not_supported_reason}")
+
+# ...
+```
 
 ## Running the agent
 
