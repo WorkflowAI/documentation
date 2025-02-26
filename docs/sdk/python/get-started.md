@@ -30,7 +30,7 @@ Set the `WORKFLOWAI_API_KEY` environment variable.
 import os
 import workflowai
 
-workflowai.init(
+workflowai.init( # This initialization is optional when using default settings
     api_key=os.environ.get("WORKFLOWAI_API_KEY"),  # This is the default and can be omitted
     url="https://run.workflowai.com",  # This is the default and can be omitted
 )

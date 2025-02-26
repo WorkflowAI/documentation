@@ -41,7 +41,7 @@ Find more examples of schemas in the [Schemas](/docs/sdk/python/schemas.md) sect
 
 ### Descriptions
 
-Adding descriptions to the input and output fields is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM. And so, it's a good way to align the agent's behavior.
+Adding descriptions to the input and output fields is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM, and will help align the agent's behavior.
 
 ```python
 class Input(BaseModel):
@@ -76,8 +76,7 @@ There are very little use cases for descriptions and examples in the **input** f
 In short, we recommend using default values for most output fields.
 
 Pydantic is by default rather strict on model validation. If there is no default value, the field must be provided.
-Although the fact that a field is required is passed to the model, the generation can sometimes omit null or empty
-values.
+Although the fact that a field is required is passed to the model, the generation can sometimes omit null or empty values.
 
 ## Instructions
 
