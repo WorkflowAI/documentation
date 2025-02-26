@@ -2,10 +2,10 @@ import asyncio
 import workflowai
 from pydantic import BaseModel, Field
 from workflowai import Model
-from workflowai.fields import File
+from workflowai.fields import PDF
 
 class PDFQuestionInput(BaseModel):
-    pdf: File = Field(description="The PDF document to analyze")
+    pdf: PDF = Field(description="The PDF document to analyze")
     question: str = Field(description="The question to answer about the PDF content")
 
 class PDFAnswerOutput(BaseModel):
@@ -25,7 +25,7 @@ async def main():
     # Test with a remote PDF (Microsoft's annual report)
     print("\nTesting with remote PDF...")
     pdf_url = "https://microsoft.gcs-web.com/static-files/b3eef820-6757-44ea-9f98-3963bace4837"
-    pdf = File(url=pdf_url)
+    pdf = PDF(url=pdf_url)
     run = await answer_pdf_question.run(
         PDFQuestionInput(
             pdf=pdf,

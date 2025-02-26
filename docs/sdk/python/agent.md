@@ -237,6 +237,38 @@ async def answer_question(input: Input) -> Output:
 When a model is retired or deprecated, WorkflowAI automatically upgrades it to the latest compatible version with equivalent or better pricing. This ensures your agents continue working seamlessly without any code changes needed on your end.
 {% endhint %}
 
+### Supported models
+
+When building an agent that uses images, or audio, you need to use a model that supports multimodality. Use the `list_models()` function to get the list of models and check if they support your use case by checking the `is_not_supported_reason` field.
+
+```python
+class AudioInput(BaseModel):
+    audio: Audio = Field()
+
+class AudioOutput(BaseModel):
+    transcription: str = Field()
+
+@agent(id="audio-transcription")
+async def audio_transcription(input: AudioInput) -> AudioOutput:
+    """
+    Transcribe the audio file.
+    """
+    ...
+
+models = await audio_transcription.list_models()
+for model in models:
+    if model.is_not_supported_reason is None:
+        print(f"{model.id} supports audio transcription")
+    else:
+        print(f"{model.id} does not support audio transcription: {model.is_not_supported_reason}")
+
+# ...
+```
+
+{% hint style="info" %}
+The `list_models()` function is a powerful way to programmatically discover which models are compatible with your agent's requirements. This is especially important for multimodal agents that handle images or audio, as not all models support these capabilities. You can use this information to dynamically select the most appropriate model at runtime or to provide fallback options.
+{% endhint %}
+
 ## Running the agent
 
 {% hint style="warning" %}
@@ -343,6 +375,53 @@ async for chunk in answer_question.stream(Input(question="What is the history of
 
 {% hint style="info" %}
 Even when using streaming, partial outputs are returned as valid output schemas.
+{% endhint %}
+
+### View the prompt
+
+To access the exact prompt sent by WorkflowAI to any AI provider, and the raw response as well, you can use `fetch_completions` on a run object. For example:
+
+```python
+# Fetch the raw completion from the LLM
+run = await answer_question.run(Input(question="What is the history of Paris?"))
+
+# Get completion details
+completions = await run.fetch_completions()
+
+for completion in completions:
+    completion_json = completion.model_dump_json(indent=2)
+    print(completion_json)
+
+# Output:
+# {
+#   "messages": [
+#     {
+#       "role": "system",
+#       "content": "<instructions>\nYou are an expert in history.\nAnswer the question with attention to detail and historical accuracy.\n</instructions>\n\nInput will be provided in the user message using a JSON following the schema:\n```json\n{\n  \"properties\": {\n    \"question\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"question\"\n  ],\n  \"type\": \"object\"\n}\n```"
+#     },
+#     {
+#       "role": "user",
+#       "content": "Input is:\n```json\n{\n  \"question\": \"What is the history of Paris?\"\n}\n```"
+#     }
+#   ],
+#   "response": "{\"answer\":\"- Paris, the capital of France, has a history that dates back to ancient times, originally settled by the Parisii, a Celtic tribe, around 250 BC...\"}",
+#   "usage": {
+#     "completion_token_count": 177,
+#     "completion_cost_usd": 0.00177,
+#     "reasoning_token_count": 0,
+#     "prompt_token_count": 210,
+#     "prompt_token_count_cached": 0,
+#     "prompt_cost_usd": 0.0005250000000000001,
+#     "prompt_audio_token_count": 0,
+#     "prompt_audio_duration_seconds": 0.0,
+#     "prompt_image_count": 0,
+#     "model_context_window_size": 128000
+#   }
+# }
+```
+
+{% hint style="info" %}
+The `fetch_completions` method is particularly useful for debugging, understanding token usage, and auditing the exact interactions with the underlying AI models. This can help you optimize prompts, analyze costs, and ensure the model is receiving the expected instructions.
 {% endhint %}
 
 ### Error handling

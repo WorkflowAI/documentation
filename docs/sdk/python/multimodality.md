@@ -89,7 +89,7 @@ Images generation is not supported yet.
 
 ## PDF, documents
 
-Use the `File` class to add PDF, documents, or other files as input to an agent.
+Use the `PDF` class to add PDF, documents, or other files as input to an agent.
 
 In the following example, an agent is created that can answer questions based on a PDF document.
 
@@ -101,10 +101,10 @@ This example uses the `GEMINI_2_0_FLASH_LATEST` model - a powerful and cost-effe
 import workflowai
 from pydantic import BaseModel, Field
 from workflowai import Model
-from workflowai.fields import File
+from workflowai.fields import PDF
 
 class PDFQuestionInput(BaseModel):
-    pdf: File = Field(description="The PDF document to analyze")
+    pdf: PDF = Field(description="The PDF document to analyze")
     question: str = Field(description="The question to answer about the PDF content")
 
 class PDFAnswerOutput(BaseModel):
@@ -124,7 +124,7 @@ async def answer_pdf_question(input: PDFQuestionInput) -> PDFAnswerOutput:
 
 ## From a remote file
 pdf_url = "https://microsoft.gcs-web.com/static-files/b3eef820-6757-44ea-9f98-3963bace4837"
-pdf = File(url=pdf_url)
+pdf = PDF(url=pdf_url)
 agent_run = await answer_pdf_question.run(
     PDFQuestionInput(
         pdf=pdf,
@@ -157,7 +157,7 @@ pdf_path = "path/to/pdf.pdf"
 with open(pdf_path, "rb") as pdf_file:
     content = pdf_file.read()
 
-pdf = File(content_type="application/pdf", data=content)
+pdf = PDF(content_type="application/pdf", data=content)
 agent_run = await answer_pdf_question.run(
     PDFQuestionInput(
         pdf=pdf,
@@ -203,13 +203,13 @@ async def detect_audio_spam(input: AudioInput) -> AudioOutput:
 This part of the documentation is not yet complete.
 {% endhint %}
 
-Once the agent is created, you can use `agent.list_models()` to see which models support audio input.
+Once the agent is created, you can use `agent.list_models()` to see which models support audio input. Check the `is_not_supported_reason` field to determine if a model supports your multimodal use case:
 
 ```python
 models = await detect_audio_spam.list_models()
-print(models)
-
-# ...
+# Filter for supported models
+supported_models = [model.id for model in models if model.is_not_supported_reason is None]
+# Now supported_models contains all models that can process audio
 ```
 
 Then, you can run the agent with an audio file.
