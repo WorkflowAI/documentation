@@ -220,7 +220,7 @@ audio_path = "path/to/audio.mp3"
 with open(audio_path, "rb") as audio_file:
     content = audio_file.read()
 
-audio = Audio(content_type="audio/mpeg", data=content)
+audio = Audio(content_type="audio/mp3", data=content)
 agent_run = await detect_audio_spam.run(
     AudioInput(audio=audio),
     model=Model.GEMINI_2_0_FLASH_LATEST
