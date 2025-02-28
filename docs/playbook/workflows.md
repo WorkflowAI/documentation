@@ -4,7 +4,9 @@
 This section is intended for developers who want to build complex workflows by orchestrating multiple AI agents. You'll learn how to break down complex tasks into simpler agents and combine them effectively.
 {% endhint %}
 
-https://www.anthropic.com/research/building-effective-agents 
+{% hint style="info" %}
+This documentation is inspired by Anthropic's research on [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents).
+{% endhint %}
 
 ## Workflows
 
@@ -28,6 +30,20 @@ We will be using code to orchestrate the agents. We recommend using CursorAI to 
 {% hint style="info" %}
 Read about our CursorAI integration [here](integrations/cursor.md) first.
 {% endhint %}
+
+### Patterns
+
+These building blocks can be combined with workflow patterns that help manage complexity:
+
+| Pattern | Description |
+|---------|-------------|
+| Sequential Processing | Steps executed in order |
+| Parallel Processing | Independent tasks run simultaneously |
+| Evaluation/Feedback Loops | Results checked and improved iteratively |
+| Orchestration | Coordinating multiple components |
+| Routing | Directing work based on context |
+
+
 
 Write the workflow you want to setup in CursorAI:
 > Given a YC batch URL (e.g., https://www.ycombinator.com/companies?batch=W25), follow these steps:

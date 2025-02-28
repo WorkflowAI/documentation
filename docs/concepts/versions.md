@@ -8,7 +8,7 @@ WorkflowAI defines two types of (agent) versions:
 
 | Version Type | Example | Description |
 |--------------|---------|-------------|
-| **Major** Versions | 1, 2, 3, ... | A major version represents a specific configuration of a agent, including its instructions, temperature, and tools. |
+| **Major** Versions | 1, 2, 3, ... | A major version represents a specific configuration of a agent, including its instructions, temperature, descriptions/examples, and tools. |
 | **Minor** Versions | 1.1, 1.2, 1.3, ... | A minor version represents a major version **associated with a specific model** (e.g., OpenAI's GPT-4o-mini). |
 
 

@@ -44,12 +44,16 @@
 * [Reliability](cloud/reliability.md)
 * [Compliance](cloud/compliance.md)
 
-## Open-source
-* [Setup](https://github.com/workflowai/workflowai)
-
-## Advanced Topics
-* [Workflows](advanced/workflows.md)
-* [RAG Integration](advanced/rag.md)
+## Python SDK
+* [Get started](sdk/python/get-started.md)
+* [@workflowai.agent](sdk/python/agent.md)
+* [Schemas](sdk/python/schemas.md)
+* [Versions](sdk/python/versions.md)
+* [Multimodality](sdk/python/multimodality.md)
+* [Tools](sdk/python/tools.md)
+* [Errors](sdk/python/errors.md)
+* [Examples](https://github.com/WorkflowAI/workflowai-py/tree/main/examples)
+* [Workflows](https://github.com/WorkflowAI/workflowai-py/tree/main/examples/workflows)
 
 ## Support
 * [Slack](https://workflowai.com/slack)
