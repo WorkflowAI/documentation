@@ -128,7 +128,7 @@ run = await answer_question.run(
 )
 
 # View prompt
-# https://workflowai.com/docs/agents/answer-question-with-word-count/1/runs?page=0&taskRunId=019509ed-017e-7059-4c25-6137ebdb7dcd
+# https://workflowai.com/docs/agents/answer-question-with-word-count/runs/019509ed-017e-7059-4c25-6137ebdb7dcd
 # System prompt:
 # <instructions>The answer should be less than 5 words. Answer the following question: What is artificial intelligence?</instructions>
 # { "answer": "Smart computer systems learning" }
