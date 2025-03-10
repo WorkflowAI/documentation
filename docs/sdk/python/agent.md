@@ -1,10 +1,70 @@
 # How `@workflowai.agent` works
 
-An agent is composed of three parts:
+## Introduction
 
-1. Schema (input, output)
-2. Instructions
-3. Model
+WorkflowAI takes a different approach to LLMs that simplifies development while providing more structure and reliability.
+
+### Traditional LLM Approach vs. WorkflowAI
+
+Let's compare approaches with a practical example: extracting positive and negative aspects from customer reviews.
+
+#### Traditional Approach
+With traditional LLM frameworks, you might create a prompt like this:
+
+```
+Based on the following reviews:
+{{ reviews }}
+
+Identify what are the positive and negative aspects.
+Make sure you return the output in JSON format:
+{
+    "positive_aspects": [string],
+    "negative_aspects": [string]
+}
+```
+
+This prompt combines several elements:
+
+| Component | Description |
+|-----------|-------------|
+| Instructions | "Identify what are the positive and negative aspects." |
+| Variables | `{{ reviews }}` - Data to be processed |
+| Output format | JSON structure with arrays of positive and negative aspects |
+
+Despite explicitly requesting JSON output, there's no guarantee the model will comply. The LLM might return malformed JSON, skip the format entirely, or include incorrect fields—requiring you to write additional validation code.
+
+#### WorkflowAI Approach
+The same task in WorkflowAI becomes more structured and type-safe:
+
+```python
+class FeedbackInput(BaseModel):
+    reviews: list[str]
+
+class FeedbackOutput(BaseModel):
+    positive_aspects: list[str]
+    negative_aspects: list[str]
+
+@workflowai.agent(id="feedback")
+async def feedback(input: FeedbackInput) -> FeedbackOutput:
+    """
+    Identify what are the positive and negative aspects.
+    """
+    ...
+
+run = await feedback.run(
+    FeedbackInput(reviews=["..."]),
+    model=Model.GPT_4O_LATEST
+)
+```
+
+WorkflowAI guarantees your output will match the defined schema by validating responses and automatically handling invalid data. No more worrying about malformed JSON or writing extensive error handling code.
+
+WorkflowAI generates optimal prompts by combining your Pydantic models, docstring instructions, and any additional context. Benefits include automatic type validation, cleaner code architecture, and consistently reliable outputs.
+
+Let's explore how this works by breaking down the different parts of an agent:
+1. [Schema](#schema-input-output) (input, output)
+2. [Instructions](#instructions)
+3. [Model](#model)
 
 Optionally, an agent can also have tools, which will be explained in the [Tools](sdk/python/tools.md) section.
 
@@ -44,9 +104,6 @@ Find more examples of schemas in the [Schemas](/docs/sdk/python/schemas.md) sect
 Adding descriptions to the input and output fields is optional, but it's a good practice to do so, as descriptions will be included in the final prompt sent to the LLM, and will help align the agent's behavior.
 
 ```python
-class Input(BaseModel):
-    question: str
-
 class Output(BaseModel):
     answer: str = Field(description="Answer with bullet points.")
 ```
@@ -218,7 +275,7 @@ run = await answer_question.run(
 The model is the LLM that will be used to generate the output. WorkflowAI offers a unified interface for all the models it supports from OpenAI, Anthropic, Google, and more. Simply pass the model you want to use to the `model` parameter.
 
 {% hint style="info" %}
-The [list of models supported by WorkflowAI is available here](https://github.com/WorkflowAI/workflowai-py/blob/main/workflowai/core/domain/model.py), but you can also see the list of models from the playground, for a more user-friendly experience.
+The [list of models supported by WorkflowAI is available here](https://github.com/WorkflowAI/python-sdk/blob/main/workflowai/core/domain/model.py), but you can also see the list of models from the playground, for a more user-friendly experience.
 {% endhint %}
 
 Set the model in the `@agent` decorator.

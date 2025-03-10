@@ -6,7 +6,7 @@ there are content moderation issues.
 All errors are wrapped in a `WorkflowAIError` that contains details about what happened.
 The most interesting fields are:
 
-- `code` is a string that identifies the type of error, see the [errors.py](https://github.com/WorkflowAI/workflowai-py/blob/main/workflowai/core/domain/errors.py) file for more details
+- `code` is a string that identifies the type of error, see the [errors.py](https://github.com/WorkflowAI/python-sdk/blob/main/workflowai/core/domain/errors.py) file for more details
 - `message` is a human readable message that describes the error
 
 The `WorkflowAIError` is raised when the agent is called, so you can handle it like any other exception.
