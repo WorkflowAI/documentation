@@ -171,11 +171,11 @@ You have created your first agent! Congratulations.
 
 Agents created by the SDK are also available in the [Playground](https://workflowai.com/docs/agents/get-capital-info/1).
 
-![Playground](/docs/assets/images/playground/docs-capital-info.png)
+[![Playground](/docs/assets/images/playground/docs-capital-info.png)](https://workflowai.com/docs/agents/get-capital-info/1)
 
 Runs are automatically logged as well from the [Runs](https://workflowai.com/docs/agents/get-capital-info/1/runs?page=0) section.
 
-![Runs](/docs/assets/images/runs/docs-capital-info.png)
+[![Runs](/docs/assets/images/runs/docs-capital-info.png)](https://workflowai.com/docs/agents/get-capital-info/1/runs?page=0)
 
 ## Next steps
 

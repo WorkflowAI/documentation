@@ -2,14 +2,13 @@
 * [Welcome](README.md)
 
 ## Getting Started
-* [Build your first AI agent in 5 minutes](getting-started/first-agent.md)
-* [Migrate an existing prompt](getting-started/migrate.md)
+* [Build your first AI feature](getting-started/first-ai-feature.md)
 * [For product managers](getting-started/for-product-managers.md)
 * [For developers](getting-started/for-developers.md)
   * [CursorAI Integration](integrations/cursor.md)
   * [v0.dev](integrations/v0.dev.md)
 
-## AI Agents Playbook
+## AI Features Playbook
 * [Introduction](playbook/introduction.md)
 * [What is an AI agent?](playbook/what-is-an-ai-agent.md)
 * [Building your first AI agent](playbook/building-your-first-ai-agent.md)
@@ -17,10 +16,7 @@
 * [Evaluating your AI agent](playbook/evaluating-your-ai-agent.md)
 * [Improving your AI agent](playbook/improving-your-ai-agent.md)
 * [Best practices](playbook/best-practices.md)
-* [Workflows](playbook/workflows.md)
-* [RAG](playbook/rag.md)
-* [Fine-tuning](playbook/fine-tuning.md)
-* [What to do next](playbook/what-to-do-next.md)
+* [Workflows](playbook/workflows.md) 
 
 ## Concepts
 * [AI Agents](concepts/ai-agents.md)
@@ -52,8 +48,8 @@
 * [Multimodality](sdk/python/multimodality.md)
 * [Tools](sdk/python/tools.md)
 * [Errors](sdk/python/errors.md)
-* [Examples](https://github.com/WorkflowAI/workflowai-py/tree/main/examples)
-* [Workflows](https://github.com/WorkflowAI/workflowai-py/tree/main/examples/workflows)
+* [Examples](https://github.com/WorkflowAI/python-sdk/tree/main/examples)
+* [Workflows](https://github.com/WorkflowAI/python-sdk/tree/main/examples/workflows)
 
 ## Support
 * [Slack](https://workflowai.com/slack)

@@ -75,7 +75,7 @@ image = Image(content_type="image/jpeg", data=content)
 agent_run = await identify_city_from_image.run(ImageInput(image=image))
 ```
 
-See a more complete example in [examples/07_image_agent.py](https://github.com/WorkflowAI/workflowai-py/blob/main/examples/07_image_agent.py).
+See a more complete example in [examples/07_image_agent.py](https://github.com/WorkflowAI/python-sdk/blob/main/examples/07_image_agent.py).
 
 {% hint style="info" %}
 You can test this agent with your own images in the WorkflowAI playground. View on [WorkflowAI](https://workflowai.com/docs/agents/city-identifier/1).
