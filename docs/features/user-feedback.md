@@ -25,13 +25,26 @@ Optionally, you can also provide a `user_id` to track feedback per user. There c
 #### Python SDK
 
 ```python
-...
+run = await my_agent.run(MyAgentInput())
+print(run.feedback_token)
+
+# Also accessible in the last chunk when streaming
+async for chunk in my_agent.stream(MyAgentInput()):
+   ...
+print(chunk.feedback_token)
 ```
 
 #### Typescript SDK
 
 ```typescript
-...
+const { output, feedbackToken } = await myAgentFunction(input);
+console.log(feedbackToken)
+// Also accessible in the last chunk when streaming
+let lastChunk: RunStreamEvent<BookCharacterTaskOutput> | undefined;
+for await (const chunk of stream) {
+   lastChunk = chunk;
+}
+console.log(lastChunk?.feedbackToken);
 ```
 
 ## Web SDK
@@ -58,14 +71,20 @@ Use our API if you want full customization over the feedback button and send the
 
 ### Python
 
-```
-python ...
+```python
+import worfklowai
+
+await workflowai.send_feedback(feedback_token="...", outcome="positive", comment=..., user_id=...)
 ```
 
 ### Typescript
 
-```
-ts ...
+```typescript
+import { WorkflowAI } from "@workflowai/workflowai";
+
+const workflowAI = WorkflowAI()
+
+await workflowAI.sendFeeback({feedback_token: "", outcome: "positive", comment: "...", userID: ""})
 ```
 
 ## View user feedback
