@@ -16,21 +16,20 @@
 * [Evaluating your AI agent](playbook/evaluating-your-ai-agent.md)
 * [Improving your AI agent](playbook/improving-your-ai-agent.md)
 * [Best practices](playbook/best-practices.md)
-* [Workflows](playbook/workflows.md) 
+* [Workflows](playbook/workflows.md)
 
 ## Concepts
-* [AI Agents](concepts/ai-agents.md)
 * [Schemas](concepts/schemas.md)
 * [Versions](concepts/versions.md)
 * [Runs](concepts/runs.md)
 * [Tools](concepts/tools.md)
-* [@prompt](advanced/prompt.md)
 
 ## Features
 * [Playground](features/playground.md)
 * [Benchmarks](features/benchmarks.md)
 * [Code](features/code.md)
 * [Deployments](features/deployments.md)
+* [User Feedback](features/user-feedback.md)
 * [Monitoring](features/monitoring.md)
 * [Limitations](features/limitations.md)
 
@@ -52,5 +51,5 @@
 * [Workflows](https://github.com/WorkflowAI/python-sdk/tree/main/examples/workflows)
 
 ## Support
-* [Slack](https://workflowai.com/slack)
+* [Email](mailto:team@workflowai.support)
 * [GitHub Discussions](https://github.com/workflowai/workflowai/discussions)

@@ -67,9 +67,9 @@ WorkflowAI leverages structured generation, also called [structured output](http
 
 
 ## How to create a schema?
-WorkflowAI supports two ways to create a task schema:
+WorkflowAI supports two ways to create a schema:
 - using our web-app, using AI or manually. 
-- using code, via Cursor.
+- writing code directly.
 
 [video]
 
