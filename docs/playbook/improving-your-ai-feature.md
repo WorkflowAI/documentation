@@ -19,33 +19,33 @@ When the schema fields don't align with expected inputs or outputs - extra field
 Certain format issues require schema updates; others do not.
 
 - **Schema Update Required:** Issues involving changes in data structure, such as switching a field from a single string to a list of strings, require the schema to be updated
-- **No Schema Update Required:** Formatting adjustments (eg. specific format for dates, bullet points vs. paragraphs, or language requirements) can be resolved by updating field descriptions or examples within the playground. Refer to the Version-Level Issues section [TODO link to “Schema-Level Issues” section] for more information on this case.
+- **No Schema Update Required:** Formatting adjustments (eg. specific format for dates, bullet points vs. paragraphs, or language requirements) can be resolved by updating field descriptions or examples within the playground. Refer to the [Version-Level Issues section](#problem-a-field-format-is-wrong-version-level) for more information on this case.
 
 ## Version-Level Issues
 
 Version-level issues have a wide variety of solutions depending on their nature. The first part of this section highlights common version-level problems and their solutions at a high level. The second part of this section provides further information about each solution.
 
-#### Problem: A field format is wrong (pt. 2)
+#### Problem: A field format is wrong (Version-Level)
 As noted in the schema-level issues section, certain format issues can be solved on the playground directly; others can not.
 
-- **Playground-Resolvable Cases:** Content format issues (dates, bullet points, language style) can be fixed directly in the playground by editing instructions [link to “Updating Instructions” section], examples, and descriptions [TODO link to “Updating Field Examples and Descriptions” section] . The edits can be completed with the help of the Playground Chat Agent or manually. 
-- **Schema Update Required:** Data structure changes require updating the schema directly. Refer to the Schema-Level Issues [TODO link to “Schema-Level Issues” section] section for more information.
+- **Playground-Resolvable Cases:** Content format issues (dates, bullet points, language style) can be fixed directly in the playground by editing [instructions](#updating-instructions), or editing [examples, and descriptions](#updating-field-examples-and-descriptions). The edits can be completed with the help of the Playground Chat Agent or manually. 
+- **Schema Update Required:** Data structure changes require updating the schema directly. Refer to the [Schema-Level Issues](#problem-a-field-format-is-wrong-schema-level) section for more information.
 
 #### Problem: My feature doesn’t seem to understand the output that I want
 Example: a task that should produce a summary in bullet points, but the summary is written as a paragraph.
 
 There are several solutions to try:
 
-- Update the playground instructions [TODO link to “Updating Instructions” section] to ensure that the expected output behavior is clearly described. 
+- [Update the playground instructions](#updating-instructions) to ensure that the expected output behavior is clearly described. 
     - Example of this problem that would be solved by this solution:A feature that should produce a one paragraph summary, but currently the summary is 2 or more paragraphs. Ensuring that the instructions specifically mention the one paragraph maximum will help ensure the LLM is aware of the size limit
-- Updating a field’s examples and descriptions [TODO link to “Updating Field Examples and Descriptions” section] can provided even clearer guidance for issues with a specific field,
+- [Updating a field’s examples and descriptions](#updating-field-examples-and-descriptions) can provided even clearer guidance for issues with a specific field,
     - Example of this problem that would be solved by this solution: A feature that should produce a summary in bullet points, but currently the summary is in a paragraph form. Updating the summary examples to include bullet points can help guide the LLM in formatting.
-- Use highly intelligent models [TODO link to “Trying Different Models” section]. For complicated prompts, or prompts where the instructions, examples, and descriptions have all been updated to no avail, experiment with different models, specifically models with higher intelligence. The playground chat agent can recommend high intelligence models, and model intelligence scores can also be viewed when hovering over models in the playground model dropdown. 
+- [Use highly intelligent model](#trying-different-models). For complicated prompts, or prompts where the instructions, examples, and descriptions have all been updated to no avail, experiment with different models, specifically models with higher intelligence. The playground chat agent can recommend high intelligence models, and model intelligence scores can also be viewed when hovering over models in the playground model dropdown. 
 
-If even highly intelligent models are not able to produce the correct output, the prompt may be too complex for current LLM capabilities. See [Determine Feature Feasibility] [TODO to section] for more information on feature limitations. 
+If even highly intelligent models are not able to produce the correct output, the prompt may be too complex for current LLM capabilities. See [Determine Feature Feasibility](testing-your-ai-feature.md#determine-feature-feasibility) for more information on feature limitations. 
 
 #### Problem: The output does not contain up-to-date information
-LLMs have knowledge cut-offs and may produce outdated information. Integrating tools into instructions helps the LLM real-time data access. A list of available tools is available in the [Adding Hosted Tools to Instructions][TODO add link] section.
+LLMs have knowledge cut-offs and may produce outdated information. Integrating tools into instructions helps the LLM real-time data access. A list of available tools is available in the [Adding Hosted Tools to Instructions](#adding-hosted-tools-to-instructions) section.
 
 Example of this problem: 
 - asking an LLM the current stock price of AAPL without including any @search tool.
@@ -53,12 +53,12 @@ Example of this problem:
 #### Problem: I’m getting a lot of errors when I use tools
 
 Tools help models perform different functionality that they would otherwise be unable to do. For example, accessing real-time data that is more recent than their knowledge cut-offs.
-Some models manage tools better than others; experimenting with [different models] [TODO link to “Trying Different Models” section] will help you find the models that work best with the tools you need to use.
+Some models manage tools better than others; experimenting with [different models](#trying-different-models) will help you find the models that work best with the tools you need to use.
 
 #### Problem: I’m getting errors related to a model’s context window
 An LLM's context window refers to the maximum number of tokens (words or subwords) that the model can consider simultaneously when generating a response. In simpler terms, it's how much recent information the model can "remember" or use as context during a conversation or task.
 
-Models have varying context window sizes. If there is an error related to a feature exceeding a model’s context window, [switch models] [TODO link to “Trying Different Models” section] to one that has a larger context window. The playground chat agent can provide recommendations for models with large context windows, and you can also view model’s context windows by hovering a model in the playground model dropdown to view its details
+Models have varying context window sizes. If there is an error related to a feature exceeding a model’s context window, [switch models](#trying-different-models) to one that has a larger context window. The playground chat agent can provide recommendations for models with large context windows, and you can also view model’s context windows by hovering a model in the playground model dropdown to view its details
 
 ### Additional Guidance on Version-Level Solutions:
 

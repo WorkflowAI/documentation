@@ -32,7 +32,7 @@ If issues with the feature are observed, refer to the [Improving your AI Feature
 For software engineers
 {% endhint %}
 
-After integrating the feature into your product, consider integrating WorkflowAI’s [feedback component](TODO add link to feedback page) into your product to collect user insights directly. The feedback component allows you to easily collect user feedback on your WorkflowAI feature to inform ongoing feature improvement.
+After integrating the feature into your product, consider integrating WorkflowAI's [feedback component](features/user-feedback.md) into your product to collect user insights directly. The feedback component allows you to easily collect user feedback on your WorkflowAI feature to inform ongoing feature improvement.
 
 ### Monitoring Feedback
 
