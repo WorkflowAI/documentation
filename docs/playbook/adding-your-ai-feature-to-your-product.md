@@ -22,7 +22,7 @@ After deploying your chosen version to an environment:
 4. Copy the provided integration code and paste into your codebase. Be sure to select the desired **version with the desired environment icon** from the version-selection dropdown to ensure the correct version is referenced in the generated code.
 
 ### Monitoring Runs
-Once deployed, it’s recommended to monitor real-time feature runs (via the [Runs](concepts/runs.md) page) through WorkflowAI to help identify and rectify early issues. All Runs of a feature are logged automatically on the Run’s page, so they can be accessed and viewed any time.
+Once deployed, it’s recommended to monitor real-time feature runs (via the [Runs](../concepts/runs.md) page) through WorkflowAI to help identify and rectify early issues. All Runs of a feature are logged automatically on the Run’s page, so they can be accessed and viewed any time.
 
 If issues with the feature are observed, refer to the [Improving your AI Feature](improving-your-ai-feature.md) section for common issues and tips on how to resolve them.
 
@@ -32,7 +32,7 @@ If issues with the feature are observed, refer to the [Improving your AI Feature
 For software engineers
 {% endhint %}
 
-After integrating the feature into your product, consider integrating WorkflowAI's [feedback component](features/user-feedback.md) into your product to collect user insights directly. The feedback component allows you to easily collect user feedback on your WorkflowAI feature to inform ongoing feature improvement.
+After integrating the feature into your product, consider integrating WorkflowAI's [feedback component](../features/user-feedback.md) into your product to collect user insights directly. The feedback component allows you to easily collect user feedback on your WorkflowAI feature to inform ongoing feature improvement.
 
 ### Monitoring Feedback
 

@@ -14,7 +14,7 @@ When thinking about building your own AI feature, it’s important to consider t
 ## Creating your Schema
 
 {% hint style="info" %}
-We recommend building your first features directly in the [web-app](https://workflowai.com/) as opposed to the [SDK](sdk/python/get-started.md), as the web app is the fastest way to get started.
+We recommend building your first features directly in the [web-app](https://workflowai.com/) as opposed to the [Python SDK](../sdk/python/get-started.md), as the web app is the fastest way to get started.
 {% endhint %}
 
 Once you’ve established a clear goal for your AI feature, tap **+ New** on the web-app and write a few sentences describing what the agent should do. Based on your description, the AI feature builder will identify specific fields required for the input and output. Collectively, these fields create your schema. 

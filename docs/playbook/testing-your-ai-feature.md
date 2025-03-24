@@ -19,7 +19,7 @@ After creating your schema, the first thing to do is test the feature by running
 
 Options for generating test data include:
 
-- **Early Internal/Beta Deployment (recommended):** Deploy an early version internally or to a beta group and gather real-world data using WorkflowAI [observability and feedback features](TODO ADD LINK).
+- **Early Internal/Beta Deployment (recommended):** Deploy an early version internally or to a beta group and gather real-world data using WorkflowAI [observability and feedback features](../features/user-feedback.md).
 - **Generated Data:** WorkflowAI can automatically generate suitable test inputs. It’s possible to provide specific instructions to guide the generation process.
 - **Imported Input:** Input can be directly imported on the playground to facilitate testing.
 

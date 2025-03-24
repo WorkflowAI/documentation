@@ -22,7 +22,9 @@ Apple recently introduced a AI agent that can rewrite a text with a different to
 [image]
 </details>
 
-For more inspiration on AI features you can build, go to [workflowai.com](workflowai.com) and enter your company URL to get customized recommendations, or browse the suggested AI features to see a wide range of capabilities. 
+For more inspiration on AI features you can build, go to [workflowai.com](https://workflowai.com) and enter your company URL to get customized recommendations, or browse the suggested AI features to see a wide range of capabilities. 
+
+For more information on how to build AI features, check out our [Python SDK guide](../sdk/python/get-started.md).
 
 ## What is *not* an AI Feature?
 
