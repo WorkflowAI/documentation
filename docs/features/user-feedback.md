@@ -22,7 +22,6 @@ The feedback system operates through a secure `feedback_token` that links user f
 
 2. **Token Security**: The `feedback_token` is a cryptographically signed token that:
    - Is valid only for the specific run that generated it
-   - Has a limited time validity (typically 30 days)
    - Cannot be used to access any sensitive data
    - Requires no additional authentication to submit feedback
 
