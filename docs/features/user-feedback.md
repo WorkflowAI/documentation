@@ -31,6 +31,10 @@ The feedback system operates through a secure `feedback_token` that links user f
 
 5. **Storage and Analysis**: WorkflowAI associates the feedback with the original run, making it available in your dashboard for analysis.
 
+{% hint style="info" %}
+The `feedback_token` is designed to be safely passed to client-side applications. It contains no sensitive information and can only be used for submitting feedback for the specific run that generated it. The token cannot be used to access any user data, modify your agents, or perform any administrative actions. This security-by-design approach allows you to freely incorporate feedback collection in your frontend without compromising your application's security.
+{% endhint %}
+
 ### User ID Tracking
 
 - The optional `user_id` parameter allows tracking feedback on a per-user basis
@@ -44,13 +48,14 @@ The feedback system operates through a secure `feedback_token` that links user f
 Backend                              Frontend                             WorkflowAI
 ┌────────────┐                      ┌────────────┐                      ┌────────────┐
 │            │  1. Call /run API    │            │                      │            │
-│            │───────────────────────>           │                      │            │
+│            │───────────────────────────────────────────────────────────>           │
 │            │                      │            │                      │            │
 │            │  2. Receive token    │            │                      │            │
-│ Your       │<───────────────────────           │                      │ WorkflowAI │
-│ Server     │                      │ Your       │                      │ Services   │
-│            │  3. Pass token       │ Client App │                      │            │
-│            │───────────────────────>           │  4. Submit feedback  │            │
+│ Your       │<───────────────────────────────────────────────────────────           │
+│ Server     │                      │ Your       │                      │ WorkflowAI │
+│            │  3. Pass token       │ Client App │                      │ API        │
+│            │───────────────────────>           │                      │            │
+│            │                      │            │  4. Submit feedback  │            │
 │            │                      │            │───────────────────────>           │
 │            │                      │            │                      │            │
 └────────────┘                      └────────────┘                      └────────────┘
