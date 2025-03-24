@@ -14,46 +14,94 @@ Collecting end user feedback is essential for understanding how your AI features
 
 ## How it works
 
-All you need to send feedback to WorkflowAI is the `feedback_token` that is provided when you call the `/run` endpoint. The `feedback_token` is a signed token that allows posting feedback to a single run. Once the feedback token is propagated to your client application, we have a couple of different ways to send feedback to WorkflowAI.
+### Feedback Token Lifecycle
 
-Optionally, you can also provide a `user_id` to track feedback per user. There can be only one feedback per (`feedback_token`, `user_id`) pair. So sending a new feedback for the same token / user ID pair will overwrite the existing ones.
+The feedback system operates through a secure `feedback_token` that links user feedback to specific AI interactions:
 
-[image]
+1. **Token Generation**: When you call the `/run` endpoint to execute an AI agent, WorkflowAI automatically generates a unique `feedback_token` for that specific interaction.
 
-### Access `feedback_token`
+2. **Token Security**: The `feedback_token` is a cryptographically signed token that:
+   - Is valid only for the specific run that generated it
+   - Has a limited time validity (typically 30 days)
+   - Cannot be used to access any sensitive data
+   - Requires no additional authentication to submit feedback
 
-#### Python SDK
+3. **Token Propagation**: Your application needs to pass this token from your backend to your frontend client application where feedback will be collected.
+
+4. **Feedback Submission**: When a user provides feedback, your application sends the `feedback_token` along with the feedback data (positive/negative rating and optional comment) to WorkflowAI.
+
+5. **Storage and Analysis**: WorkflowAI associates the feedback with the original run, making it available in your dashboard for analysis.
+
+### User ID Tracking
+
+- The optional `user_id` parameter allows tracking feedback on a per-user basis
+- Each unique combination of (`feedback_token`, `user_id`) can have only one feedback entry
+- Submitting new feedback with the same (`feedback_token`, `user_id`) pair will overwrite previous feedback
+- This prevents duplicate feedback while allowing users to change their minds
+
+### Data Flow Diagram
+
+```
+Backend                              Frontend                             WorkflowAI
+┌────────────┐                      ┌────────────┐                      ┌────────────┐
+│            │  1. Call /run API    │            │                      │            │
+│            │───────────────────────>           │                      │            │
+│            │                      │            │                      │            │
+│            │  2. Receive token    │            │                      │            │
+│ Your       │<───────────────────────           │                      │ WorkflowAI │
+│ Server     │                      │ Your       │                      │ Services   │
+│            │  3. Pass token       │ Client App │                      │            │
+│            │───────────────────────>           │  4. Submit feedback  │            │
+│            │                      │            │───────────────────────>           │
+│            │                      │            │                      │            │
+└────────────┘                      └────────────┘                      └────────────┘
+```
+
+## Access `feedback_token`
+
+`feedback_token` needs to be accessed from the client application that will be used to post feedback.
+
+### Python SDK
 
 ```python
+import workflowai
+
+# Get feedback token from run
 run = await my_agent.run(MyAgentInput())
 print(run.feedback_token)
 
-# Also accessible in the last chunk when streaming
+# Get feedback token when streaming
 async for chunk in my_agent.stream(MyAgentInput()):
-   ...
+    # Process chunks
+    pass
 print(chunk.feedback_token)
 ```
 
-#### Typescript SDK
+### Typescript SDK
 
 ```typescript
+import { WorkflowAI } from "@workflowai/workflowai";
+
+const workflowAI = WorkflowAI();
+
+// Get feedback token from run
 const { output, feedbackToken } = await myAgentFunction(input);
-console.log(feedbackToken)
-// Also accessible in the last chunk when streaming
-let lastChunk: RunStreamEvent<BookCharacterTaskOutput> | undefined;
+console.log(feedbackToken);
+
+// Get feedback token when streaming
+let lastChunk: RunStreamEvent<OutputType> | undefined;
 for await (const chunk of stream) {
-   lastChunk = chunk;
+    lastChunk = chunk;
 }
 console.log(lastChunk?.feedbackToken);
 ```
 
-#### API
+### API
 
-The feedback token is returned by the run endpoint. See the 
-[endpoint documentation](https://run.workflowai.com/docs#/Run/run_task_v1__tenant__agents__task_id__schemas__task_schema_id__run_post)
+The feedback token is returned by the run endpoint. See the [endpoint documentation](https://run.workflowai.com/docs#/Run/run_task_v1__tenant__agents__task_id__schemas__task_schema_id__run_post).
 
 ```
-POST /v1/_/tasks/my-agent/schemas/1/run
+POST /v1/_/agents/my-agent/schemas/1/run
 Host: https://run.workflowai.com
 Authorization: Bearer {Add your API key here}
 Content-Type: application/json
@@ -70,11 +118,13 @@ Content-Type: application/json
 }
 ```
 
-## Web SDK
+## Post feedback
+
+### Web SDK
 
 The web SDK is the simplest way to add a feedback button to your web app.
 
-### React
+#### React
 
 ```bash
 npm install @workflowai/react
@@ -88,19 +138,21 @@ import { FeedbackButtons } from '@workflowai/react'
 ...
 ```
 
-## API
+### SDKs/REST API
 
-Use our API if you want full customization over the feedback button and send the feedback via your own backend.
+Use our API if:
+- you want full customization over the feedback button and send the feedback via your own backend.
+- you want to post feedback from a non-browser environment (e.g. mobile apps).
 
-### Python
+#### Python
 
 ```python
-import worfklowai
+import workflowai
 
 await workflowai.send_feedback(feedback_token="...", outcome="positive", comment=..., user_id=...)
 ```
 
-### Typescript
+#### Typescript
 
 ```typescript
 import { WorkflowAI } from "@workflowai/workflowai";
@@ -110,10 +162,10 @@ const workflowAI = WorkflowAI()
 await workflowAI.sendFeeback({feedback_token: "", outcome: "positive", comment: "...", userID: ""})
 ```
 
-### Rest
+#### REST API
 
-Posting feedback is a single non authenticated API call with a feedback token and outcome in the body.
-See the [full documentation](https://api.workflowai.com/docs#/Feedback/create_run_feedback_v1_feedback_post)
+Posting feedback is a single non authenticated API call with a `feedback_token` and `outcome` in the body.
+See the [full documentation](https://api.workflowai.com/docs#/Feedback/create_run_feedback_v1_feedback_post).
 
 ```
 POST /v1/feedback
@@ -123,8 +175,8 @@ Content-Type: application/json
 {
   "feedback_token": "...", # the token as returned by the run endpoint
   "outcome": "positive", # "positive" | "negative"
-  "comment": "...", # optional
-  "user_id": "..." # optional
+  "comment": "...", # optional, the comment from the user
+  "user_id": "..." # optional, if provided, feedback will be associated with a specific user. Posting feedback for the same `feedback_token` and `user_id` will overwrite the existing feedback.
 }
 ```
 
