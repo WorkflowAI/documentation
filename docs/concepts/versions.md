@@ -18,7 +18,7 @@ WorkflowAI defines two types of (agent) versions:
 
 Versions are useful for several reasons:
 - They allow you to save a specific configuration of an agent, so you can reproduce it later.
-- They allow you to [compare the performance of different versions of an agent](/docs/playbook/evaluating-your-ai-agent.md).
+- They allow you to [compare the performance of different versions of an agent](/docs/playbook/evaluating-your-ai-feature.md).
 - They allow you to [deploy a specific version of an agent](/docs/features/deployments.md).
 
 
