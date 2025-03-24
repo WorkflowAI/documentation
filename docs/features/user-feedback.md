@@ -47,6 +47,29 @@ for await (const chunk of stream) {
 console.log(lastChunk?.feedbackToken);
 ```
 
+#### API
+
+The feedback token is returned by the run endpoint. See the 
+[endpoint documentation](https://run.workflowai.com/docs#/Run/run_task_v1__tenant__agents__task_id__schemas__task_schema_id__run_post)
+
+```
+POST /v1/_/tasks/my-agent/schemas/1/run
+Host: https://run.workflowai.com
+Authorization: Bearer {Add your API key here}
+Content-Type: application/json
+
+# JSON Body
+{
+   "task_input": ...
+}
+
+# Response
+{
+   "task_output": ...,
+   "feedback_token": ...
+}
+```
+
 ## Web SDK
 
 The web SDK is the simplest way to add a feedback button to your web app.
@@ -85,6 +108,24 @@ import { WorkflowAI } from "@workflowai/workflowai";
 const workflowAI = WorkflowAI()
 
 await workflowAI.sendFeeback({feedback_token: "", outcome: "positive", comment: "...", userID: ""})
+```
+
+### Rest
+
+Posting feedback is a single non authenticated API call with a feedback token and outcome in the body.
+See the [full documentation](https://api.workflowai.com/docs#/Feedback/create_run_feedback_v1_feedback_post)
+
+```
+POST /v1/feedback
+Host: https://api.workflowai.com
+Content-Type: application/json
+
+{
+  "feedback_token": "...", # the token as returned by the run endpoint
+  "outcome": "positive", # "positive" | "negative"
+  "comment": "...", # optional
+  "user_id": "..." # optional
+}
 ```
 
 ## View user feedback
