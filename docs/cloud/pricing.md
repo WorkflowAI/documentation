@@ -16,7 +16,7 @@ We **don't** charge by:
 
 ## Price match guarantee
 
-For any AI provider, we offer a price-match guarantee: WorkflowAI Cloud **charges the same per token price** than the AI provider you're using. Currently, we support models from OpenAI, Anthropic, Google, Mistral, LLAMA (provided by [FireworksAI](https://fireworks.ai/)).
+For any AI provider, we offer a price-match guarantee: WorkflowAI Cloud **charges the same per token price** as the AI provider you're using. Currently, we support models from OpenAI, Anthropic, Google, Mistral, DeepSeek, and LLAMA (provided by [FireworksAI](https://fireworks.ai/)).
 
 If you have credits with Amazon, Google, or Azure, you can also continue to use them via WorkflowAI Cloud, [by providing your own API keys](/docs/features/deployments.md#using-your-own-ai-providers-api).
 
