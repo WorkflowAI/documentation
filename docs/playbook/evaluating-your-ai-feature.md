@@ -7,8 +7,9 @@ For product and engineering teams
 When it comes evaluating the runs of AI feature, there are two types of features:
 
 - Features that are very easy to generate inputs for on the playground
-Features that require more complicated, real-world inputs to evaluate
-- Before spending time reviewing your runs, first determine if the feature can be accurately evaluated using runs with generated data from the playground, or if an early deployment to an internal beta is necessary in order to evaluate your feature using real data.
+- Features that require more complicated, real-world inputs to evaluate
+
+Before spending time reviewing your runs, first determine if the feature can be accurately evaluated using runs with generated data from the playground, or if an early deployment to an internal beta is necessary in order to evaluate your feature using real data.
 
 ## Reviewing Runs
 
