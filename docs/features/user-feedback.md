@@ -188,7 +188,7 @@ Content-Type: application/json
 
 Go to the "User Feedbacks" section from the menu, and you'll see a list of feedback.
 
-[image]
+![User Feedback Screen](</docs/assets/images/user-feedback.png>)
 
 {% hint style="info" %}
 If you need any help, email us at team@workflowai.support or open a discussion on [GitHub](https://github.com/workflowai/workflowai/discussions).
