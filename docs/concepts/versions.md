@@ -18,7 +18,7 @@ WorkflowAI defines two types of (agent) versions:
 
 Versions are useful for several reasons:
 - They allow you to save a specific configuration of an agent, so you can reproduce it later.
-- They allow you to [compare the performance of different versions of an agent](/docs/playbook/evaluating-your-ai-agent.md).
+- They allow you to [compare the performance of different versions of an agent](/docs/playbook/evaluating-your-ai-feature.md).
 - They allow you to [deploy a specific version of an agent](/docs/features/deployments.md).
 
 
@@ -46,5 +46,5 @@ You can access the list of all versions by clicking on the "Versions" section fr
 
 Cloning a version is useful when you want to create a new version based on an existing version. For example, you have a version running on OpenAI's GPT-4o-mini, and you want to quickly reuse the same instructions, temperature, and tools for a new version running on Gemini 2.0.
 
-![Clone a version](/docs/assets/images/versions/clone-version.gif)
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/b8ede934ea45207d5f880b480b14a606/watch" %}
 

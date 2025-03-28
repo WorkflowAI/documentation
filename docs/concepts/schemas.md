@@ -1,10 +1,10 @@
 # Schemas
 ## What are schemas?
-An AI agent has at least one schema. Each schema define:
+An AI feature has at least one schema. Each schema define:
 - an input structure
 - an output structure
 
-For example, a [task that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
+For example, a [feature that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
 
 ![alt text](/docs/assets/images/schema.png)
 
@@ -69,24 +69,26 @@ WorkflowAI leverages structured generation, also called [structured output](http
 ## How to create a schema?
 WorkflowAI supports two ways to create a schema:
 - using our web-app, using AI or manually. 
-- writing code directly.
-
-[video]
+- [writing code directly (for Python)](/docs/sdk/python/get-started.md).
 
 ## Edit a schema
 Finding the right schema takes a few iterations, so we try to make editing a schema as easy as possible.
 
-[video]
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/a34d249ba3c4259d436491eeb50ecaaf/watch" %}
 
-When possible, we recommend to edit the schema using the chat. If you need more control, you can manually edit the schema.
+When possible, we recommend to edit the schema using the agent via the playground. If you need more control, you can manually edit the schema.
 
-## Archiving a schema
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/283622ef29c1587c5a49604a4d880606/watch" %}
+
+
+## Archiving and restoring a schema
 When building a new task, it's very likely you'll need multiple iterations to get the right schema. To clean up unused schemas, you can archive them.
 
 To archive a schema, navigate to the "Schemas" section from the menu, and click on the "Archive" button in the schema's detail view.
 
-![alt text](assets/Screenshot 2025-01-03 at 16.04.38.png)
-[video]
+To restore a schema, navigate to the "Schemas" section from the menu, and click on the "Restore" button in the schema's detail view.
+
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/1a6551a93fdb49d0c0c2cdedfc9920b1/watch" %}
 
 {% hint style="important" %}
 Archived schemas are not deleted, but hidden from the UI. Any deployment or version using an archived schema will continue to work, to avoid breaking changes.

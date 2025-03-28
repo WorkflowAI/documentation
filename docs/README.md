@@ -1,4 +1,4 @@
-WorkflowAI is a low-code platform that enables [product managers](getting-started/for-product-managers.md) and [software engineers](getting-started/for-developers.md) to quickly ship [AI features](/docs/playbook/what-is-an-ai-agent.md) that delight users.
+WorkflowAI is a low-code platform that enables [product managers](getting-started/for-product-managers.md) and [software engineers](getting-started/for-developers.md) to quickly ship [AI features](/docs/playbook/playbook/what-is-an-ai-feature.md). that delight users.
 
 {% hint style="info" %}
 Please give us a star on [GitHub](https://github.com/workflowai/workflowai) to follow updates.

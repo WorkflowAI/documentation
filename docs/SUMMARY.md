@@ -10,13 +10,13 @@
 
 ## AI Features Playbook
 * [Introduction](playbook/introduction.md)
-* [What is an AI agent?](playbook/what-is-an-ai-agent.md)
-* [Building your first AI agent](playbook/building-your-first-ai-agent.md)
-* [Testing your AI agent](playbook/testing-your-ai-agent.md)
-* [Evaluating your AI agent](playbook/evaluating-your-ai-agent.md)
-* [Improving your AI agent](playbook/improving-your-ai-agent.md)
-* [Best practices](playbook/best-practices.md)
-* [Workflows](playbook/workflows.md)
+* [What is an AI Feature?](playbook/what-is-an-ai-feature.md)
+* [Defining your AI Feature](playbook/defining-your-ai-feature.md)
+* [Testing your AI Feature](playbook/testing-your-ai-feature.md)
+* [Evaluating your AI Feature](playbook/evaluating-your-ai-feature.md)
+* [Adding your AI Feature to your Product (and Beyond)](playbook/adding-your-ai-feature-to-your-product.md)
+* [Improving your AI Feature](playbook/improving-your-ai-feature.md)
+* [Workflows](playbook/workflows.md) 
 
 ## Concepts
 * [Schemas](concepts/schemas.md)
