@@ -71,22 +71,22 @@ WorkflowAI supports two ways to create a schema:
 - using our web-app, using AI or manually. 
 - [writing code directly (for Python)](/docs/sdk/python/get-started.md).
 
-[video]
-
 ## Edit a schema
 Finding the right schema takes a few iterations, so we try to make editing a schema as easy as possible.
 
 {% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/a34d249ba3c4259d436491eeb50ecaaf/watch" %}
 
-When possible, we recommend to edit the schema using the chat. If you need more control, you can manually edit the schema.
+When possible, we recommend to edit the schema using the agent via the playground. If you need more control, you can manually edit the schema.
+
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/283622ef29c1587c5a49604a4d880606/watch" %}
+
 
 ## Archiving a schema
 When building a new task, it's very likely you'll need multiple iterations to get the right schema. To clean up unused schemas, you can archive them.
 
 To archive a schema, navigate to the "Schemas" section from the menu, and click on the "Archive" button in the schema's detail view.
 
-![alt text](assets/Screenshot 2025-01-03 at 16.04.38.png)
-[video]
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/8f4846c2f0b8ae9872b74037917d510e/watch" %}
 
 {% hint style="important" %}
 Archived schemas are not deleted, but hidden from the UI. Any deployment or version using an archived schema will continue to work, to avoid breaking changes.
