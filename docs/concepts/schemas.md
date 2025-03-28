@@ -76,8 +76,6 @@ WorkflowAI supports two ways to create a schema:
 ## Edit a schema
 Finding the right schema takes a few iterations, so we try to make editing a schema as easy as possible.
 
-{% embed url="https://youtu.be/CJdJbYfLVcs" %}
-
 {% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/a34d249ba3c4259d436491eeb50ecaaf/watch" %}
 
 When possible, we recommend to edit the schema using the chat. If you need more control, you can manually edit the schema.
