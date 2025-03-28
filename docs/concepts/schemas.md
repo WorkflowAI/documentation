@@ -86,7 +86,7 @@ When building a new task, it's very likely you'll need multiple iterations to ge
 
 To archive a schema, navigate to the "Schemas" section from the menu, and click on the "Archive" button in the schema's detail view.
 
-{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/8f4846c2f0b8ae9872b74037917d510e/watch" %}
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/1a6551a93fdb49d0c0c2cdedfc9920b1/watch" %}
 
 {% hint style="important" %}
 Archived schemas are not deleted, but hidden from the UI. Any deployment or version using an archived schema will continue to work, to avoid breaking changes.
