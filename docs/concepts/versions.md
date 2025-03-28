@@ -46,5 +46,5 @@ You can access the list of all versions by clicking on the "Versions" section fr
 
 Cloning a version is useful when you want to create a new version based on an existing version. For example, you have a version running on OpenAI's GPT-4o-mini, and you want to quickly reuse the same instructions, temperature, and tools for a new version running on Gemini 2.0.
 
-![Clone a version](/docs/assets/images/versions/clone-version.gif)
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/b8ede934ea45207d5f880b480b14a606/watch" %}
 
