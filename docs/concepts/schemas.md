@@ -81,10 +81,12 @@ When possible, we recommend to edit the schema using the agent via the playgroun
 {% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/283622ef29c1587c5a49604a4d880606/watch" %}
 
 
-## Archiving a schema
+## Archiving and restoring a schema
 When building a new task, it's very likely you'll need multiple iterations to get the right schema. To clean up unused schemas, you can archive them.
 
 To archive a schema, navigate to the "Schemas" section from the menu, and click on the "Archive" button in the schema's detail view.
+
+To restore a schema, navigate to the "Schemas" section from the menu, and click on the "Restore" button in the schema's detail view.
 
 {% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/1a6551a93fdb49d0c0c2cdedfc9920b1/watch" %}
 
