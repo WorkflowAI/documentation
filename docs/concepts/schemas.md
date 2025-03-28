@@ -1,10 +1,10 @@
 # Schemas
 ## What are schemas?
-An AI agent has at least one schema. Each schema define:
+An AI feature has at least one schema. Each schema define:
 - an input structure
 - an output structure
 
-For example, a [task that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
+For example, a [feature that answer question about a PDF](https://workflowai.dev/workflowai/tasks/pdf-question-answering/1/schemas) is represented:
 
 ![alt text](/docs/assets/images/schema.png)
 
@@ -69,14 +69,16 @@ WorkflowAI leverages structured generation, also called [structured output](http
 ## How to create a schema?
 WorkflowAI supports two ways to create a schema:
 - using our web-app, using AI or manually. 
-- writing code directly.
+- [writing code directly (for Python)](/docs/sdk/python/get-started.md).
 
 [video]
 
 ## Edit a schema
 Finding the right schema takes a few iterations, so we try to make editing a schema as easy as possible.
 
-[video]
+{% embed url="https://youtu.be/CJdJbYfLVcs" %}
+
+{% embed url="https://customer-turax1sz4f7wbpuv.cloudflarestream.com/a34d249ba3c4259d436491eeb50ecaaf/watch" %}
 
 When possible, we recommend to edit the schema using the chat. If you need more control, you can manually edit the schema.
 
